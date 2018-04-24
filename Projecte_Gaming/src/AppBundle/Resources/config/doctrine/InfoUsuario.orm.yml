@@ -1,0 +1,44 @@
+AppBundle\Entity\InfoUsuario:
+    type: entity
+    table: info_usuario
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        user:
+            type: string
+            nullable: false
+            length: 99
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 99
+            options:
+                fixed: false
+        name:
+            type: string
+            nullable: false
+            length: 99
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: false
+            length: 99
+            options:
+                fixed: false
+        active:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

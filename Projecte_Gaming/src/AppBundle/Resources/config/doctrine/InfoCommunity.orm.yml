@@ -1,0 +1,48 @@
+AppBundle\Entity\InfoCommunity:
+    type: entity
+    table: info_community
+    indexes:
+        game_id:
+            columns:
+                - game_id
+        admin_id:
+            columns:
+                - admin_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: false
+            length: 999
+            options:
+                fixed: false
+    manyToOne:
+        admin:
+            targetEntity: InfoUsuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                admin_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        game:
+            targetEntity: InfoGame
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                game_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
