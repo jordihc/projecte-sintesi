@@ -11,9 +11,13 @@ default_registre:
 default_login_verification:
     path:   /loginverification
     defaults: { _controller: "AppBundle:User:loginverification"}
-    methods:  GET
+    methods:  POST
 
 default_registre_verification:
     path:   /registreverification
     defaults: { _controller: "AppBundle:User:registreverification"}
-    methods:  GET
+    methods:  POST
+
+default_testsess:
+    path:   /testsess
+    defaults: {_controller: "AppBundle:User:testsess"}
