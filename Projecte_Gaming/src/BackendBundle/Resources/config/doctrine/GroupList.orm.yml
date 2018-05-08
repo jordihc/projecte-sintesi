@@ -1,4 +1,4 @@
-AppBundle\Entity\GroupList:
+BackendBundle\Entity\GroupList:
     type: entity
     table: group_list
     indexes:

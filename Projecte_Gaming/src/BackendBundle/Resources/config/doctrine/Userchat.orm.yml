@@ -1,13 +1,19 @@
-AppBundle\Entity\InfoCommunity:
+BackendBundle\Entity\Userchat:
     type: entity
-    table: info_community
+    table: userchat
     indexes:
-        game_id:
+        id_user_e:
             columns:
-                - game_id
-        admin_id:
+                - id_user_e
+        id_user_e_2:
             columns:
-                - admin_id
+                - id_user_e
+        id_user_e_3:
+            columns:
+                - id_user_e
+        id_user_r:
+            columns:
+                - id_user_r
     id:
         id:
             type: integer
@@ -18,31 +24,35 @@ AppBundle\Entity\InfoCommunity:
             generator:
                 strategy: IDENTITY
     fields:
-        description:
+        missage:
             type: string
             nullable: false
             length: 999
             options:
                 fixed: false
+        createDate:
+            type: datetime
+            nullable: false
+            column: create_date
     manyToOne:
-        admin:
+        idUserR:
             targetEntity: InfoUsuario
             cascade: {  }
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
-                admin_id:
+                id_user_r:
                     referencedColumnName: id
             orphanRemoval: false
-        game:
-            targetEntity: InfoGame
+        idUserE:
+            targetEntity: InfoUsuario
             cascade: {  }
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
-                game_id:
+                id_user_e:
                     referencedColumnName: id
             orphanRemoval: false
     lifecycleCallbacks: {  }

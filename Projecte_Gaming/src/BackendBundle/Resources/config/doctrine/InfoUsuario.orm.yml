@@ -1,4 +1,4 @@
-AppBundle\Entity\InfoUsuario:
+BackendBundle\Entity\InfoUsuario:
     type: entity
     table: info_usuario
     id:

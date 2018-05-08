@@ -1,13 +1,10 @@
-AppBundle\Entity\Groupchat:
+BackendBundle\Entity\Post:
     type: entity
-    table: groupchat
+    table: post
     indexes:
         id_user:
             columns:
                 - id_user
-        id_group:
-            columns:
-                - id_group
     id:
         id:
             type: integer
@@ -18,27 +15,31 @@ AppBundle\Entity\Groupchat:
             generator:
                 strategy: IDENTITY
     fields:
-        missage:
-            type: string
-            nullable: false
-            length: 9999
-            options:
-                fixed: false
         createDate:
             type: datetime
             nullable: false
             column: create_date
+        imgRoute:
+            type: string
+            nullable: false
+            length: 999
+            options:
+                fixed: false
+            column: img_route
+        videoRoute:
+            type: string
+            nullable: false
+            length: 999
+            options:
+                fixed: false
+            column: video_route
+        missage:
+            type: string
+            nullable: false
+            length: 999
+            options:
+                fixed: false
     manyToOne:
-        idGroup:
-            targetEntity: InfoGroup
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                id_group:
-                    referencedColumnName: id
-            orphanRemoval: false
         idUser:
             targetEntity: InfoUsuario
             cascade: {  }

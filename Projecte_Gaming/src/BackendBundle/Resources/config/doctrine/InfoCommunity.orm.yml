@@ -1,10 +1,13 @@
-AppBundle\Entity\Post:
+BackendBundle\Entity\InfoCommunity:
     type: entity
-    table: post
+    table: info_community
     indexes:
-        id_user:
+        game_id:
             columns:
-                - id_user
+                - game_id
+        admin_id:
+            columns:
+                - admin_id
     id:
         id:
             type: integer
@@ -15,39 +18,31 @@ AppBundle\Entity\Post:
             generator:
                 strategy: IDENTITY
     fields:
-        createDate:
-            type: datetime
-            nullable: false
-            column: create_date
-        imgRoute:
-            type: string
-            nullable: false
-            length: 999
-            options:
-                fixed: false
-            column: img_route
-        videoRoute:
-            type: string
-            nullable: false
-            length: 999
-            options:
-                fixed: false
-            column: video_route
-        missage:
+        description:
             type: string
             nullable: false
             length: 999
             options:
                 fixed: false
     manyToOne:
-        idUser:
+        admin:
             targetEntity: InfoUsuario
             cascade: {  }
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
-                id_user:
+                admin_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        game:
+            targetEntity: InfoGame
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                game_id:
                     referencedColumnName: id
             orphanRemoval: false
     lifecycleCallbacks: {  }

@@ -1,0 +1,23 @@
+default_login:
+    path:   /login
+    defaults: { _controller: "AppBundle:User:login"}
+    methods:  GET
+
+default_registre:
+    path:   /registre
+    defaults: { _controller: "AppBundle:User:registre"}
+    methods:  GET
+
+default_login_verification:
+    path:   /loginverification
+    defaults: { _controller: "AppBundle:User:loginverification"}
+    methods:  POST
+
+default_registre_verification:
+    path:   /registreverification
+    defaults: { _controller: "AppBundle:User:registreverification"}
+    methods:  POST
+
+default_testsess:
+    path:   /testsess
+    defaults: {_controller: "AppBundle:User:testsess"}

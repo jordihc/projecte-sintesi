@@ -1,19 +1,13 @@
-AppBundle\Entity\Userchat:
+BackendBundle\Entity\Groupchat:
     type: entity
-    table: userchat
+    table: groupchat
     indexes:
-        id_user_e:
+        id_user:
             columns:
-                - id_user_e
-        id_user_e_2:
+                - id_user
+        id_group:
             columns:
-                - id_user_e
-        id_user_e_3:
-            columns:
-                - id_user_e
-        id_user_r:
-            columns:
-                - id_user_r
+                - id_group
     id:
         id:
             type: integer
@@ -27,7 +21,7 @@ AppBundle\Entity\Userchat:
         missage:
             type: string
             nullable: false
-            length: 999
+            length: 9999
             options:
                 fixed: false
         createDate:
@@ -35,24 +29,24 @@ AppBundle\Entity\Userchat:
             nullable: false
             column: create_date
     manyToOne:
-        idUserR:
-            targetEntity: InfoUsuario
+        idGroup:
+            targetEntity: InfoGroup
             cascade: {  }
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
-                id_user_r:
+                id_group:
                     referencedColumnName: id
             orphanRemoval: false
-        idUserE:
+        idUser:
             targetEntity: InfoUsuario
             cascade: {  }
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
-                id_user_e:
+                id_user:
                     referencedColumnName: id
             orphanRemoval: false
     lifecycleCallbacks: {  }

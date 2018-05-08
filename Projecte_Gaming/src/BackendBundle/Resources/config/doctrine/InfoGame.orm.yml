@@ -1,4 +1,4 @@
-AppBundle\Entity\InfoGame:
+BackendBundle\Entity\InfoGame:
     type: entity
     table: info_game
     id:

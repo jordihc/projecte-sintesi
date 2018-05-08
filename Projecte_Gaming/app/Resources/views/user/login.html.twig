@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<script>  
+            function check2pwd() {  
+                    if(inputPassword.value != Repassword.value) {  
+                        alert("les contrasenyes no són les mateixes")  
+                        inputPassword.value = "";  
+                        Repassword.value = "";  
+                    }  
+            }  
+        </script>
+  <div class="col-md-6">
+  </div>
+  <div class="col-md-6">
+    <form class="form-signin" action="loginverification" method="post">
+      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Usuari</label>
+      <input type="text" id="inputEmail" name="user" class="form-control" placeholder="Email address" required autofocus>
+      <label for="Password" class="sr-only">Password</label>
+      <input type="password" id="Password" name="password" class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Entra</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+      <p>Si no estas suscrit <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Registrat</button></p>
+    </form>
+    <p>{{msg}}</p>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content">
+   <form class="form-signin" action="registreverification" method="post">
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Registre</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <br>
+      <div class="col-md-8 col-md-offset-2">
+      <label for="inputEmail" class="sr-only">Correu electronic</label>
+      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+      <br>
+      <label for="nom" class="sr-only">Nom</label>
+      <input type="text" id="nom" name="name" class="form-control" placeholder="nom" required autofocus>
+      <br>
+      <label for="user" class="sr-only">Nom de l'usuari</label>
+      <input type="text" id="user" name="user" class="form-control" placeholder="user" required autofocus>
+      <br>
+      <label for="inputPassword" class="sr-only">Contrasenya</label>
+      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+      <br>
+      <label for="Repassword" class="sr-only">Torna ha escriure la contrasenya</label>
+      <input type="password" id="Repassword" name="repassword" class="form-control" onblur="check2pwd()" placeholder="Rewrite password" required>
+      </div>
+      
+      <br>
+     
+        <div class="modal-footer col-md-12 float-right">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Registrat</button>
+      
+    </div>
+
+    </form>
+    </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

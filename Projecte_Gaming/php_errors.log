@@ -1,0 +1,54 @@
+[24-Apr-2018 14:38:23 UTC] PHP Fatal error:  Cannot redeclare class AppBundle\Controller\DefaultController in /home/ubuntu/workspace/my_project/src/AppBundle/Controller/LoginController.php on line 0
+[24-Apr-2018 14:38:23 UTC] PHP Stack trace:
+[24-Apr-2018 14:38:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/my_project/web/app_dev.php:0
+[24-Apr-2018 14:38:23 UTC] PHP   2. Symfony\Component\HttpKernel\Kernel->handle() /home/ubuntu/workspace/my_project/web/app_dev.php:30
+[24-Apr-2018 14:38:23 UTC] PHP   3. Symfony\Component\HttpKernel\Kernel->boot() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:197
+[24-Apr-2018 14:38:23 UTC] PHP   4. Symfony\Component\HttpKernel\Kernel->initializeContainer() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:137
+[24-Apr-2018 14:38:23 UTC] PHP   5. Symfony\Component\HttpKernel\Kernel->buildContainer() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:642
+[24-Apr-2018 14:38:23 UTC] PHP   6. AppKernel->registerContainerConfiguration() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:774
+[24-Apr-2018 14:38:23 UTC] PHP   7. Symfony\Component\Config\Loader\DelegatingLoader->load() /home/ubuntu/workspace/my_project/app/AppKernel.php:59
+[24-Apr-2018 14:38:23 UTC] PHP   8. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->load() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Loader/DelegatingLoader.php:40
+[24-Apr-2018 14:38:23 UTC] PHP   9. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->parseImports() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:127
+[24-Apr-2018 14:38:23 UTC] PHP  10. Symfony\Component\Config\Loader\FileLoader->import() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:196
+[24-Apr-2018 14:38:23 UTC] PHP  11. Symfony\Component\Config\Loader\FileLoader->doImport() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Loader/FileLoader.php:90
+[24-Apr-2018 14:38:23 UTC] PHP  12. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->load() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Loader/FileLoader.php:153
+[24-Apr-2018 14:38:23 UTC] PHP  13. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->parseImports() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:127
+[24-Apr-2018 14:38:23 UTC] PHP  14. Symfony\Component\Config\Loader\FileLoader->import() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:196
+[24-Apr-2018 14:38:23 UTC] PHP  15. Symfony\Component\Config\Loader\FileLoader->doImport() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Loader/FileLoader.php:90
+[24-Apr-2018 14:38:23 UTC] PHP  16. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->load() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Loader/FileLoader.php:153
+[24-Apr-2018 14:38:23 UTC] PHP  17. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->parseDefinitions() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:148
+[24-Apr-2018 14:38:23 UTC] PHP  18. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->parseDefinition() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:239
+[24-Apr-2018 14:38:23 UTC] PHP  19. Symfony\Component\DependencyInjection\Loader\FileLoader->registerClasses() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:584
+[24-Apr-2018 14:38:23 UTC] PHP  20. Symfony\Component\DependencyInjection\Loader\FileLoader->findClasses() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/FileLoader.php:57
+[24-Apr-2018 14:38:23 UTC] PHP  21. Symfony\Component\DependencyInjection\ContainerBuilder->getReflectionClass() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/FileLoader.php:149
+[24-Apr-2018 14:38:23 UTC] PHP  22. Symfony\Component\Config\Resource\ClassExistenceResource->isFresh() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerBuilder.php:351
+[24-Apr-2018 14:38:23 UTC] PHP  23. class_exists() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Resource/ClassExistenceResource.php:78
+[24-Apr-2018 14:38:23 UTC] PHP  24. spl_autoload_call() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Resource/ClassExistenceResource.php:78
+[24-Apr-2018 14:38:23 UTC] PHP  25. Symfony\Component\Debug\DebugClassLoader->loadClass() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Resource/ClassExistenceResource.php:78
+[24-Apr-2018 14:40:44 UTC] PHP Fatal error:  Cannot redeclare class AppBundle\Controller\DefaultController in /home/ubuntu/workspace/my_project/src/AppBundle/Controller/LoginController.php on line 0
+[24-Apr-2018 14:40:44 UTC] PHP Stack trace:
+[24-Apr-2018 14:40:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/my_project/web/app_dev.php:0
+[24-Apr-2018 14:40:44 UTC] PHP   2. Symfony\Component\HttpKernel\Kernel->handle() /home/ubuntu/workspace/my_project/web/app_dev.php:30
+[24-Apr-2018 14:40:44 UTC] PHP   3. Symfony\Component\HttpKernel\Kernel->boot() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:197
+[24-Apr-2018 14:40:44 UTC] PHP   4. Symfony\Component\HttpKernel\Kernel->initializeContainer() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:137
+[24-Apr-2018 14:40:44 UTC] PHP   5. Symfony\Component\HttpKernel\Kernel->buildContainer() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:642
+[24-Apr-2018 14:40:44 UTC] PHP   6. AppKernel->registerContainerConfiguration() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:774
+[24-Apr-2018 14:40:44 UTC] PHP   7. Symfony\Component\Config\Loader\DelegatingLoader->load() /home/ubuntu/workspace/my_project/app/AppKernel.php:59
+[24-Apr-2018 14:40:44 UTC] PHP   8. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->load() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Loader/DelegatingLoader.php:40
+[24-Apr-2018 14:40:44 UTC] PHP   9. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->parseImports() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:127
+[24-Apr-2018 14:40:44 UTC] PHP  10. Symfony\Component\Config\Loader\FileLoader->import() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:196
+[24-Apr-2018 14:40:44 UTC] PHP  11. Symfony\Component\Config\Loader\FileLoader->doImport() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Loader/FileLoader.php:90
+[24-Apr-2018 14:40:44 UTC] PHP  12. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->load() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Loader/FileLoader.php:153
+[24-Apr-2018 14:40:44 UTC] PHP  13. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->parseImports() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:127
+[24-Apr-2018 14:40:44 UTC] PHP  14. Symfony\Component\Config\Loader\FileLoader->import() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:196
+[24-Apr-2018 14:40:44 UTC] PHP  15. Symfony\Component\Config\Loader\FileLoader->doImport() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Loader/FileLoader.php:90
+[24-Apr-2018 14:40:44 UTC] PHP  16. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->load() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Loader/FileLoader.php:153
+[24-Apr-2018 14:40:44 UTC] PHP  17. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->parseDefinitions() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:148
+[24-Apr-2018 14:40:44 UTC] PHP  18. Symfony\Component\DependencyInjection\Loader\YamlFileLoader->parseDefinition() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:239
+[24-Apr-2018 14:40:44 UTC] PHP  19. Symfony\Component\DependencyInjection\Loader\FileLoader->registerClasses() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php:584
+[24-Apr-2018 14:40:44 UTC] PHP  20. Symfony\Component\DependencyInjection\Loader\FileLoader->findClasses() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/FileLoader.php:57
+[24-Apr-2018 14:40:44 UTC] PHP  21. Symfony\Component\DependencyInjection\ContainerBuilder->getReflectionClass() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Loader/FileLoader.php:149
+[24-Apr-2018 14:40:44 UTC] PHP  22. Symfony\Component\Config\Resource\ClassExistenceResource->isFresh() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerBuilder.php:351
+[24-Apr-2018 14:40:44 UTC] PHP  23. class_exists() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Resource/ClassExistenceResource.php:78
+[24-Apr-2018 14:40:44 UTC] PHP  24. spl_autoload_call() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Resource/ClassExistenceResource.php:78
+[24-Apr-2018 14:40:44 UTC] PHP  25. Symfony\Component\Debug\DebugClassLoader->loadClass() /home/ubuntu/workspace/my_project/vendor/symfony/symfony/src/Symfony/Component/Config/Resource/ClassExistenceResource.php:78
