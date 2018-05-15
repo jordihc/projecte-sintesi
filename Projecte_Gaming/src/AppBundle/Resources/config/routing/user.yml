@@ -13,6 +13,7 @@ default_registre_verification:
     defaults: { _controller: "AppBundle:User:registreverification"}
     methods:  POST
 
-default_testsess:
-    path:   /testsess
-    defaults: {_controller: "AppBundle:User:testsess"}
+default_gestio:
+    path:   /gestio
+    defaults: {_controller: "AppBundle:User:gestio"}
+    methods:  GET

@@ -110,7 +110,7 @@ class UserController extends Controller
 
         return $this->render('user/login.html.twig',array('msg' => $data));
     
-    }
+    public function loginAction(Request $request)
 
     public function logoutAction(){
         $usersession = new Session();
