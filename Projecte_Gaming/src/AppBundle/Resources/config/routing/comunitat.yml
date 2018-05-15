@@ -1,0 +1,14 @@
+default_index:
+    path:   /
+    defaults: { _controller: "AppBundle:Comunitat:index"}
+    methods:  GET
+
+default_principal:
+    path:   /principal
+    defaults: { _controller: "AppBundle:Comunitat:principal"}
+    methods:  GET
+
+default_post:
+    path:   /postverification
+    defaults: { _controller: "AppBundle:Comunitat:postverification"}
+    methods:  POST

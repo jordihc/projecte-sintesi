@@ -35,13 +35,8 @@ class UserController extends Controller
         }else{
             $pwd = hash('sha256', $userpassword0);
             if($isset_user[0]->getPassword()==$pwd){
-                $data = array(
-                 "status" => "success",
-                 "code" => 200,
-                 "msg" => "User log in successfully!"
-             );
             $usersession->set('userID', $isset_user[0]->getID());
-            return $this->render('user/userpersonal.html.twig',$data);
+            return $this->redirect('perfil');
             }
             else{
                 $data = array(
@@ -51,7 +46,8 @@ class UserController extends Controller
                  );
             }
         }
-        return $this->render('user/login.html.twig',$data);
+        $url = $this->generateUrl('default_login',$data);
+        return $this->redirect($url);
     }
 
     public function registreverificationAction(Request $request)
@@ -92,7 +88,7 @@ class UserController extends Controller
                     "user" => $user0
             ));
             $usersession->set('userID', $get_user[0]->getID());
-            return $this->render('user/userpersonal.html.twig',$data);
+            return $this->redirect('perfil');
 
         }
         else{
@@ -103,33 +99,25 @@ class UserController extends Controller
              );
         }
 
-        return $this->render('user/login.html.twig',$data);
+        $url = $this->generateUrl('default_login',$data);
+        return $this->redirect($url);
     
     }
-
+    
     public function loginAction(Request $request)
-    {
-        return $this->render('user/login.html.twig');
+
+    {   
+        $data=$request->get('msg',null);
+
+        return $this->render('user/login.html.twig',array('msg' => $data));
     
     }
+    public function gestioAction(Request $request)
 
-    public function registreAction(Request $request)
-    {
-        return $this->render('user/login.html.twig');
-    }
-
-    public function userpostAction(Request $request)
-    {
-        $user0 = $request->get("user", null);
-        $userpassword0 = $request->get("password", null);
-
-    }
-
-    public function testsessAction(Request $request)
     {   
-        $usersession = new Session();
-        $user=$usersession->get('userID');
-        return $this->render('user/testsess.html.twig',array("msg" => $user));
+        $data=$request->get('msg',null);
 
+        return $this->render('user/gestio.html.twig',array('msg' => $data));
+    
     }
 }
