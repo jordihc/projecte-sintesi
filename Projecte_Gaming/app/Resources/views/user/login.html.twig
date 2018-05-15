@@ -14,10 +14,9 @@
   </div>
   <div class="col-md-6">
     <form class="form-signin" action="loginverification" method="post">
-      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Usuari</label>
-      <input type="text" id="inputEmail" name="user" class="form-control" placeholder="Email address" required autofocus>
+      <input type="text" id="Email" name="user" class="form-control" placeholder="Email address" required autofocus>
       <label for="Password" class="sr-only">Password</label>
       <input type="password" id="Password" name="password" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">
@@ -29,10 +28,9 @@
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
       <p>Si no estas suscrit <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Registrat</button></p>
     </form>
+{% if msg is defined %}
     <p>{{msg}}</p>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
+{% endif %}    
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

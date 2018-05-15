@@ -1,0 +1,14 @@
+default_perfil:
+    path:   /
+    defaults: { _controller: "AppBundle:Perfil:perfil"}
+    methods:  GET
+
+default_userchat:
+    path:   /chat
+    defaults: { _controller: "AppBundle:Perfil:userchat"}
+    methods:  GET
+
+default_new:
+    path:   /new
+    defaults: {_controller:"AppBundle:Perfil:new"}
+    methods:  GET

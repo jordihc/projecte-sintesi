@@ -1,11 +1,6 @@
 default_login:
-    path:   /login
+    path:   /
     defaults: { _controller: "AppBundle:User:login"}
-    methods:  GET
-
-default_registre:
-    path:   /registre
-    defaults: { _controller: "AppBundle:User:registre"}
     methods:  GET
 
 default_login_verification:
