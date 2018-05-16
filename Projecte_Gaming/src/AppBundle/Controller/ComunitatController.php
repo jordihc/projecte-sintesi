@@ -22,7 +22,6 @@ class ComunitatController extends Controller
  public function principalAction(Request $request)
     {
         $str="imagenes/12.jpg";
-        
         return $this->render('comunitat/principal.html.twig',array("ruta"=>$str));
 
         

@@ -9,6 +9,8 @@ use BackendBundle\Entity\InfoUsuario;
 use BackendBundle\Entity\Post;
 use BackendBundle\Entity\Userchat;
 use Symfony\Component\HttpFoundation\Session\Session;
+use BackendBundle\Entity\Imatgeupload;
+use BackendBundle\Form\ImatgeuploadType;
 
 class PerfilController extends Controller
 {
@@ -21,10 +23,44 @@ class PerfilController extends Controller
         }
         $userID=$usersession->get('userID');
         $data = $this->getpostdatas($userID);
-
+        
         return $this->render('user/perfil.html.twig',array("data" => $data));
     }
 
+    public function newAction(Request $request)
+    {
+        $imatgeupload = new Imatgeupload();
+        $form = $this->createForm(ImatgeuploadType::class, $imatgeupload);
+        $form->handleRequest($request);
+ 
+        if ($form->isSubmitted() && $form->isValid()) {
+            // $file stores the uploaded PDF file
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $imatgeupload->getImatgeud();
+ 
+            // Generate a unique name for the file before saving it
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+ 
+            // Move the file to the directory where brochures are stored
+            $file->move(
+                $this->getParameter('imatgeupload_directory'),
+                $fileName
+            );
+ 
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            $imatgeupload->setImatgeud($fileName);
+ 
+            // ... persist the $product variable or any other work
+            var_dump("successfully!");
+            die();
+            return $this->redirect($this->generateUrl('app_product_list'));
+        }
+        
+        return $this->render('perfil/new.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
 
     public function getpostdatas($userID)
     {
@@ -135,10 +171,5 @@ class PerfilController extends Controller
      //    $em->persist($user_chat);
      //    $em->flush();
     	
-    }
-     public function gestioAction(Request $request)
-    { 
-        return $this->render('user/gestio.html.twig');
-    
     }
 }

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<div class="col-md-6">
+	
+	
+    <form class="form-signin" action="registre_verification">
+      <h2>Registre</h2>
+      
+      <label for="inputEmail" class="sr-only">Correu electronic</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <label for="nom" class="sr-only">Nom</label>
+      <input type="text" id="nom" class="form-control" placeholder="nom" required autofocus>
+      <label for="user" class="sr-only">Nom de l'usuari</label>
+      <input type="text" id="user" class="form-control" placeholder="user" required autofocus>
+      <label for="inputPassword" class="sr-only">Contrasenya</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <label for="Repassword" class="sr-only">Torna ha escriure la contrasenya</label>
+      <input type="Repassword" id="Repassword" class="form-control" placeholder="Rewrite password" required>
+      
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+      <p>Si no estas suscrit <a href="registre">Registrat aqui</a></p>
+    </form>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

@@ -8,7 +8,7 @@ default_userchat:
     defaults: { _controller: "AppBundle:Perfil:userchat"}
     methods:  GET
 
-default_gestio:
-    path:   /gestio
-    defaults: {_controller: "AppBundle:Perfil:gestio"}
+default_new:
+    path:   /new
+    defaults: {_controller:"AppBundle:Perfil:new"}
     methods:  GET

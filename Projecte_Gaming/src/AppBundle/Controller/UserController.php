@@ -103,21 +103,17 @@ class UserController extends Controller
         return $this->redirect($url);
     
     }
-    
-    public function loginAction(Request $request)
 
+    public function loginAction(Request $request)
     {   
         $data=$request->get('msg',null);
 
         return $this->render('user/login.html.twig',array('msg' => $data));
     
-    }
-    public function gestioAction(Request $request)
+    public function loginAction(Request $request)
 
-    {   
-        $data=$request->get('msg',null);
-
-        return $this->render('user/gestio.html.twig',array('msg' => $data));
-    
+    public function logoutAction(){
+        $usersession = new Session();
+        $usersession->remove('userID');
     }
 }

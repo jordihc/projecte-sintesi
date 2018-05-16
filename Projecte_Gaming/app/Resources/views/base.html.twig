@@ -9,14 +9,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/js/jquery-3.1.1.js"></script>
     <script src="/js/bootstrap.js"></script>
-     {% block javascripts %}
-    {% endblock %}
+    <script src="/js/bootstrap-tooltip.js"></script>
     <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/css/fontawesome.css" rel="stylesheet" type="text/css">
     {% block head %}{% endblock %}
+    {% block javascripts %}{% endblock %}
   </head>
 
   <body>

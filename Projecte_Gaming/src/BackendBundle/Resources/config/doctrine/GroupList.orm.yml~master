@@ -1,0 +1,46 @@
+BackendBundle\Entity\GroupList:
+    type: entity
+    table: group_list
+    indexes:
+        id_user:
+            columns:
+                - id_user
+        id_group:
+            columns:
+                - id_group
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        joinDate:
+            type: datetime
+            nullable: false
+            column: join_date
+    manyToOne:
+        idGroup:
+            targetEntity: InfoGroup
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_group:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idUser:
+            targetEntity: InfoUsuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_user:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
