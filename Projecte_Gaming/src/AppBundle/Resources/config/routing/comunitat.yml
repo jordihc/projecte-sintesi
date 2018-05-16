@@ -12,3 +12,8 @@ default_post:
     path:   /postverification
     defaults: { _controller: "AppBundle:Comunitat:postverification"}
     methods:  POST
+
+default_gestio:
+    path:   /gestio
+    defaults: { _controller: "AppBundle:Comunitat:gestio"}
+    methods:  GET

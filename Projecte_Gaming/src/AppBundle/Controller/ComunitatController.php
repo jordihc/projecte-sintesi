@@ -83,5 +83,13 @@ class ComunitatController extends Controller
         return $this->render('comunitat/principal.html.twig',$data);
     
     }
+    public function gestioAction(Request $request)
+    {
+        $str="imagenes/12.jpg";
+        
+        return $this->render('comunitat/gestio.html.twig',array("ruta"=>$str));
+
+        
+    }
 
 }  
