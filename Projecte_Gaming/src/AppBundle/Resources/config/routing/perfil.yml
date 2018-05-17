@@ -3,12 +3,22 @@ default_perfil:
     defaults: { _controller: "AppBundle:Perfil:perfil"}
     methods:  GET
 
-default_userchat:
-    path:   /chat
-    defaults: { _controller: "AppBundle:Perfil:userchat"}
+default_gestiouser:
+    path:   /gestiouser
+    defaults: { _controller: "AppBundle:Perfil:gestiouser"}
     methods:  GET
 
-default_new:
-    path:   /new
-    defaults: {_controller:"AppBundle:Perfil:new"}
-    methods:  GET
+default_postverification:
+    path:   /postverification
+    defaults: { _controller: "AppBundle:Perfil:postverification"}
+    methods:   POST
+
+default_gestiouserverification:
+    path:   /gestiouserverification
+    defaults: { _controller: "AppBundle:Perfil:gestiouserverification"}
+    methods:  POST
+
+default_resultat:
+    path:   /searchresult
+    defaults: { _controller: "AppBundle:User:searchresult"}
+    methods:  POST

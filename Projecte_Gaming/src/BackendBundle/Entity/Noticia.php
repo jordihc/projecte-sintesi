@@ -3,9 +3,9 @@
 namespace BackendBundle\Entity;
 
 /**
- * Post
+ * Noticia
  */
-class Post
+class Noticia
 {
     /**
      * @var integer
@@ -15,7 +15,7 @@ class Post
     /**
      * @var integer
      */
-    private $idUser;
+    private $idCommunity;
 
     /**
      * @var \DateTime
@@ -25,17 +25,22 @@ class Post
     /**
      * @var string
      */
+    private $title;
+
+    /**
+     * @var string
+     */
     private $imgRoute;
 
     /**
      * @var string
      */
-    private $messages;
+    private $imgAlt;
 
     /**
      * @var string
      */
-    private $imgAlt;
+    private $message;
 
 
     /**
@@ -49,27 +54,27 @@ class Post
     }
 
     /**
-     * Set idUser
+     * Set idCommunity
      *
-     * @param integer $idUser
+     * @param integer $idCommunity
      *
-     * @return Post
+     * @return Noticia
      */
-    public function setIdUser($idUser)
+    public function setIdCommunity($idCommunity)
     {
-        $this->idUser = $idUser;
+        $this->idCommunity = $idCommunity;
 
         return $this;
     }
 
     /**
-     * Get idUser
+     * Get idCommunity
      *
      * @return integer
      */
-    public function getIdUser()
+    public function getIdCommunity()
     {
-        return $this->idUser;
+        return $this->idCommunity;
     }
 
     /**
@@ -77,7 +82,7 @@ class Post
      *
      * @param \DateTime $createDate
      *
-     * @return Post
+     * @return Noticia
      */
     public function setCreateDate($createDate)
     {
@@ -97,11 +102,35 @@ class Post
     }
 
     /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Noticia
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
      * Set imgRoute
      *
      * @param string $imgRoute
      *
-     * @return Post
+     * @return Noticia
      */
     public function setImgRoute($imgRoute)
     {
@@ -121,35 +150,11 @@ class Post
     }
 
     /**
-     * Set messages
-     *
-     * @param string $messages
-     *
-     * @return Post
-     */
-    public function setMessages($messages)
-    {
-        $this->messages = $messages;
-
-        return $this;
-    }
-
-    /**
-     * Get messages
-     *
-     * @return string
-     */
-    public function getMessages()
-    {
-        return $this->messages;
-    }
-
-    /**
      * Set imgAlt
      *
      * @param string $imgAlt
      *
-     * @return Post
+     * @return Noticia
      */
     public function setImgAlt($imgAlt)
     {
@@ -166,5 +171,29 @@ class Post
     public function getImgAlt()
     {
         return $this->imgAlt;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     *
+     * @return Noticia
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
     }
 }

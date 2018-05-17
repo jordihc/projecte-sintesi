@@ -2,61 +2,56 @@
 
 namespace BackendBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * InfoUsuario
- *
- * @ORM\Table(name="info_usuario")
- * @ORM\Entity
  */
 class InfoUsuario
 {
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var string
-     *
-     * @ORM\Column(name="user", type="string", length=99, nullable=false)
      */
     private $user;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=99, nullable=false)
      */
     private $password;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=99, nullable=false)
      */
     private $name;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=99, nullable=false)
      */
     private $email;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="active", type="integer", nullable=false)
      */
     private $active = '0';
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @var string
      */
-    private $id;
+    private $icona = 'uploads/user/avatardefault.png';
 
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set user
@@ -179,12 +174,26 @@ class InfoUsuario
     }
 
     /**
-     * Get id
+     * Set icona
      *
-     * @return integer
+     * @param string $icona
+     *
+     * @return InfoUsuario
      */
-    public function getId()
+    public function setIcona($icona)
     {
-        return $this->id;
+        $this->icona = $icona;
+
+        return $this;
+    }
+
+    /**
+     * Get icona
+     *
+     * @return string
+     */
+    public function getIcona()
+    {
+        return $this->icona;
     }
 }

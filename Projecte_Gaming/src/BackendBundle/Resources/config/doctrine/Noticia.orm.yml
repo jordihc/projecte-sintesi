@@ -1,6 +1,6 @@
-BackendBundle\Entity\Post:
+BackendBundle\Entity\Noticia:
     type: entity
-    table: post
+    table: noticia
     id:
         id:
             type: integer
@@ -11,16 +11,22 @@ BackendBundle\Entity\Post:
             generator:
                 strategy: IDENTITY
     fields:
-        idUser:
+        idCommunity:
             type: integer
             nullable: false
             options:
                 unsigned: false
-            column: id_user
+            column: id_community
         createDate:
             type: datetime
             nullable: false
             column: create_date
+        title:
+            type: string
+            nullable: false
+            length: 999
+            options:
+                fixed: false
         imgRoute:
             type: string
             nullable: true
@@ -28,18 +34,18 @@ BackendBundle\Entity\Post:
             options:
                 fixed: false
             column: img_route
-        messages:
+        imgAlt:
             type: string
             nullable: false
             length: 999
             options:
                 fixed: false
-        imgAlt:
+                default: 'img of noticia'
+            column: img_alt
+        message:
             type: string
-            nullable: true
+            nullable: false
             length: 999
             options:
                 fixed: false
-                default: 'img of post'
-            column: img_alt
     lifecycleCallbacks: {  }

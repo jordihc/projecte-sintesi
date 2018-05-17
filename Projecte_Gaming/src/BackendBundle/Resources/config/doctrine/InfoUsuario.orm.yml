@@ -14,25 +14,25 @@ BackendBundle\Entity\InfoUsuario:
         user:
             type: string
             nullable: false
-            length: 99
+            length: 999
             options:
                 fixed: false
         password:
             type: string
             nullable: false
-            length: 99
+            length: 999
             options:
                 fixed: false
         name:
             type: string
             nullable: false
-            length: 99
+            length: 999
             options:
                 fixed: false
         email:
             type: string
             nullable: false
-            length: 99
+            length: 999
             options:
                 fixed: false
         active:
@@ -41,4 +41,11 @@ BackendBundle\Entity\InfoUsuario:
             options:
                 unsigned: false
                 default: '0'
+        icona:
+            type: string
+            nullable: false
+            length: 999
+            options:
+                fixed: false
+                default: uploads/user/default.png
     lifecycleCallbacks: {  }

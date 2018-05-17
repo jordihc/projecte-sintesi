@@ -44,23 +44,43 @@ for (i = 0; i < acc.length; i++) {
 
 
 
-
     
     
 <div class="container">
 	<div class="row">
-		<h2>Gestiona la teva conta</h2>
+     <div class="col-md-3 ">
+     </div>
+		<h2>Afegeix noticies</h2>
 	</div>
 	<div class="row">
-		<div class="col-md-offset-4">
-			<form name="guardar_dades" action="gestiouserverification" method="post" enctype="multipart/form-data" >
-				<label>Icona</label>
+    <div class="col-md-3 radius">
+        <nav class="navbar navbar-inverse radius">
+            <div class="container radius"> 
+                <div class="navbar-header radius">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/comunitat/gestio">Gestiona dades</a></li>
+                        <li><a href="/comunitat/gestioNoticies">Afegeix noticies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+		<div class="col-md-7  ">
+			<form name="guardar_dades" action="guardar_dades" method="post">
+				<label class="control-label">Nom</label>
+				<input type="nom" name="nom" class="form-control" required>
+				<br>
+				<label>Usuari</label>
+				<input type="text" name="titul" class="form-control" required>
+				<br>
+				<label>Imatge noticia</label>
 				<input type="file" name="icona" class="form-control" >
 				<br>
 				<label>Email</label>
-				<input type="email" name="email" class="form-control">
+				<input type="email" name="email" class="form-control" required >
 				<br>
-<!-- 				<label>Contrasenya actual</label>
+				<label>Contrasenya actual</label>
 				<input type="password" name="password" class="form-control" required>
 				<br>
 				<label>Nova contrasenya</label>
@@ -68,13 +88,13 @@ for (i = 0; i < acc.length; i++) {
 				<br>
 				<label>Repeteix la nova contrasenya</label>
 				<input type="password" name="re_new_password" id="re_new_password" class="form-control" onblur="check2pwd()" placeholder="Rewrite password" required>
-				<br> -->
+				<br>
 				<input type="submit" name="canvis" id="canvis" value="Guardar canvis" class="btn btn-primary" >
 			</form>
 		</div>
 	</div>
+
 </div>
-   
 
        
 

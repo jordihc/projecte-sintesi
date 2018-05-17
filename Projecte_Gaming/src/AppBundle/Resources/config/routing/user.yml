@@ -12,8 +12,3 @@ default_registre_verification:
     path:   /registreverification
     defaults: { _controller: "AppBundle:User:registreverification"}
     methods:  POST
-
-default_gestio:
-    path:   /gestio
-    defaults: {_controller: "AppBundle:User:gestio"}
-    methods:  GET

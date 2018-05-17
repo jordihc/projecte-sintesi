@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use BackendBundle\Entity\InfoUsuario;
 use BackendBundle\Entity\Post;
 use Symfony\Component\HttpFoundation\Session\Session;
+use BackendBundle\Entity\InfoCommunity;
+
 
 class UserController extends Controller
 {
@@ -40,7 +42,7 @@ class UserController extends Controller
             }
             else{
                 $data = array(
-                 "status" => "error",
+                 "status" =>     "error",
                  "code" => 400,
                  "msg" => "password is not correct!"
                  );
@@ -103,17 +105,38 @@ class UserController extends Controller
         return $this->redirect($url);
     
     }
-
+    
     public function loginAction(Request $request)
+
     {   
         $data=$request->get('msg',null);
 
         return $this->render('user/login.html.twig',array('msg' => $data));
     
-    public function loginAction(Request $request)
+    }
 
-    public function logoutAction(){
-        $usersession = new Session();
-        $usersession->remove('userID');
+    public function searchresultAction(Request $request)
+    {   
+        $em = $this->getDoctrine()->getManager();
+        $tipo = $request->get("tipo");
+        $buscador = $request->get("buscador");
+        if($tipo == 0){
+            $users = $query = $em->createQuery("SELECT o FROM BackendBundle:InfoUsuario o WHERE o.user =  like :param1 or o.user like :param2 or o.user like :param3");
+            $users->setParameter('param1', '%'.$buscador.'%');
+            $users->setParameter('param2', '%'.$buscador);
+            $users->setParameter('param3', $buscador.'%');
+            $result = $users->getResult();
+        }else{
+            $communties = $query = $em->createQuery("SELECT o FROM BackendBundle:InfoCommunity o WHERE o.name =  like :param1 or o.name like :param2 or o.name like :param3");
+            $users->setParameter('param1', '%'.$buscador.'%');
+            $users->setParameter('param2', '%'.$buscador);
+            $users->setParameter('param3', $buscador.'%');
+            $result = $communties->getResult();
+        }
+
+        var_dump(count($result));
+        die();
+
+        return $this->render('user/login.html.twig');
     }
 }

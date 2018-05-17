@@ -21,8 +21,8 @@ class ComunitatController extends Controller
     }
  public function principalAction(Request $request)
     {
-        $str="imagenes/12.jpg";
-        return $this->render('comunitat/principal.html.twig',array("ruta"=>$str));
+        
+        return $this->render('comunitat/principal.html.twig',array( "gestio" => "/comunitat/gestio"));
 
         
     }
@@ -81,6 +81,36 @@ class ComunitatController extends Controller
 
         return $this->render('comunitat/principal.html.twig',$data);
     
+    }
+    public function gestioAction(Request $request)
+    {
+        
+        return $this->render('comunitat/gestio.html.twig');
+
+        
+    }
+     public function gestioNoticiesAction(Request $request)
+    {
+
+        
+        return $this->render('comunitat/gestioNotcies.html.twig');
+
+        
+    }
+
+    public function savefile($file,$destino)
+    {   
+
+        if(!empty($file) && $file != null){
+            $ext = $file->guessExtension();
+            if($ext == "jpeg"  ||  $ext == "jpg" ||  $ext == "png"){
+                     $file_name = md5(uniqid()).'.'.$ext;
+                     $file->move($destino, $file_name);
+                     $imgRoute = $destino."/".$file_name;
+            }}else{
+                $imgRoute = "uploads/usericona/avatardefault.png";
+            }
+        return $imgRoute;
     }
 
 }  

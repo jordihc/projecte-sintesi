@@ -1,6 +1,6 @@
-BackendBundle\Entity\InfoCommunity:
+BackendBundle\Entity\CommentsNoticia:
     type: entity
-    table: info_community
+    table: comments_noticia
     id:
         id:
             type: integer
@@ -11,21 +11,21 @@ BackendBundle\Entity\InfoCommunity:
             generator:
                 strategy: IDENTITY
     fields:
-        name:
-            type: string
-            nullable: false
-            length: 999
-            options:
-                fixed: false
-        idAdmin:
+        idNoticia:
             type: integer
             nullable: false
             options:
                 unsigned: false
-            column: id_admin
-        description:
+            column: id_noticia
+        idUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_user
+        comment:
             type: string
-            nullable: true
+            nullable: false
             length: 9999
             options:
                 fixed: false
@@ -33,12 +33,4 @@ BackendBundle\Entity\InfoCommunity:
             type: datetime
             nullable: false
             column: create_date
-        imgAvatar:
-            type: string
-            nullable: false
-            length: 999
-            options:
-                fixed: false
-                default: /uploads/community/default.png
-            column: img_avatar
     lifecycleCallbacks: {  }

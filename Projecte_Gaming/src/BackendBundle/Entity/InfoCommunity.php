@@ -2,53 +2,94 @@
 
 namespace BackendBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * InfoCommunity
- *
- * @ORM\Table(name="info_community", indexes={@ORM\Index(name="game_id", columns={"game_id"}), @ORM\Index(name="admin_id", columns={"admin_id"})})
- * @ORM\Entity
  */
 class InfoCommunity
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=999, nullable=false)
-     */
-    private $description;
-
-    /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @var \BackendBundle\Entity\InfoGame
-     *
-     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\InfoGame")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="game_id", referencedColumnName="id")
-     * })
+     * @var string
      */
-    private $game;
+    private $name;
 
     /**
-     * @var \BackendBundle\Entity\InfoUsuario
-     *
-     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\InfoUsuario")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="admin_id", referencedColumnName="id")
-     * })
+     * @var integer
      */
-    private $admin;
+    private $idAdmin;
+
+    /**
+     * @var string
+     */
+    private $description;
+
+    /**
+     * @var \DateTime
+     */
+    private $createDate;
 
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return InfoCommunity
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set idAdmin
+     *
+     * @param integer $idAdmin
+     *
+     * @return InfoCommunity
+     */
+    public function setIdAdmin($idAdmin)
+    {
+        $this->idAdmin = $idAdmin;
+
+        return $this;
+    }
+
+    /**
+     * Get idAdmin
+     *
+     * @return integer
+     */
+    public function getIdAdmin()
+    {
+        return $this->idAdmin;
+    }
 
     /**
      * Set description
@@ -75,60 +116,55 @@ class InfoCommunity
     }
 
     /**
-     * Get id
+     * Set createDate
      *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set game
-     *
-     * @param \BackendBundle\Entity\InfoGame $game
+     * @param \DateTime $createDate
      *
      * @return InfoCommunity
      */
-    public function setGame(\BackendBundle\Entity\InfoGame $game = null)
+    public function setCreateDate($createDate)
     {
-        $this->game = $game;
+        $this->createDate = $createDate;
 
         return $this;
     }
 
     /**
-     * Get game
+     * Get createDate
      *
-     * @return \BackendBundle\Entity\InfoGame
+     * @return \DateTime
      */
-    public function getGame()
+    public function getCreateDate()
     {
-        return $this->game;
+        return $this->createDate;
     }
+    /**
+     * @var string
+     */
+    private $imgAvatar = '/uploads/community/default.png';
+
 
     /**
-     * Set admin
+     * Set imgAvatar
      *
-     * @param \BackendBundle\Entity\InfoUsuario $admin
+     * @param string $imgAvatar
      *
      * @return InfoCommunity
      */
-    public function setAdmin(\BackendBundle\Entity\InfoUsuario $admin = null)
+    public function setImgAvatar($imgAvatar)
     {
-        $this->admin = $admin;
+        $this->imgAvatar = $imgAvatar;
 
         return $this;
     }
 
     /**
-     * Get admin
+     * Get imgAvatar
      *
-     * @return \BackendBundle\Entity\InfoUsuario
+     * @return string
      */
-    public function getAdmin()
+    public function getImgAvatar()
     {
-        return $this->admin;
+        return $this->imgAvatar;
     }
 }
