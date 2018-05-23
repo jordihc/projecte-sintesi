@@ -40,7 +40,7 @@ class InfoUsuario
     /**
      * @var string
      */
-    private $icona = 'uploads/user/avatardefault.png';
+    private $icona = 'uploads/user/default.png';
 
 
     /**
@@ -197,3 +197,4 @@ class InfoUsuario
         return $this->icona;
     }
 }
+

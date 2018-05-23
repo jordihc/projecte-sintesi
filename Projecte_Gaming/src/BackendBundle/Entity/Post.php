@@ -35,7 +35,7 @@ class Post
     /**
      * @var string
      */
-    private $imgAlt;
+    private $imgAlt = 'img of post';
 
 
     /**
@@ -168,3 +168,4 @@ class Post
         return $this->imgAlt;
     }
 }
+

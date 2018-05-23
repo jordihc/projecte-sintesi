@@ -13,9 +13,14 @@ default_postverification:
     defaults: { _controller: "AppBundle:Perfil:postverification"}
     methods:   POST
 
-default_gestiouserverification:
-    path:   /gestiouserverification
-    defaults: { _controller: "AppBundle:Perfil:gestiouserverification"}
+default_gestiouserverification1:
+    path:   /gestiouserverification1
+    defaults: { _controller: "AppBundle:Perfil:gestiouserverification1"}
+    methods:  POST
+
+default_gestiouserverification2:
+    path:   /gestiouserverification2
+    defaults: { _controller: "AppBundle:Perfil:gestiouserverification2"}
     methods:  POST
 
 default_resultat:

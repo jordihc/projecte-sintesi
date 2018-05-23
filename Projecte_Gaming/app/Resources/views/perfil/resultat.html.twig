@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+<script>
+         $(document).ready(function(){
+         $('[data-toggle="tooltip"]').tooltip(); 
+         });
+         
+         
+        
+      
+         
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  }
+}
+</script>
+
+{% endblock %}
+
+
+{% block body %}
+<section id="blog-section" > 
+     <div class="container">
+   
+  
+            
+        {%  if comprova==true %}
+        <div class="row">
+        {% for post in data %}
+        
+        <div class="col-lg-6 col-md-6">
+        <aside class="buscat">
+
+                <a href="{{post.url}}?userid={{post.id}}">
+                <img src="{{post.usericona}}" class="img-responsive icona">
+                <p>{{post.user}}</p>
+                </a>
+        </aside>
+        </div>
+        
+        {% endfor %}
+        </div>
+        {% endif %}
+
+
+       {%  if comprova==false %}
+        <div class="row">
+        {% for post in data %}
+
+
+        <div class="col-lg-6 col-md-6">
+        <aside class="buscat_comunitat">
+                <a href="{{post.url}}?comunitatid={{post.id}}"><img src="{{post.imgavatar}}" class="img-responsive">      
+
+                <p>{{post.name}}</p></a>               
+        </aside>
+
+        </div>
+
+      {% endfor %}
+       </div>
+       {% endif %}
+
+
+       </div>
+   </section>)
+           
+   
+{% endblock %}

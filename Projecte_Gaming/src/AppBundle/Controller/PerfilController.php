@@ -20,10 +20,21 @@ class PerfilController extends Controller
             $url = $this->generateUrl('default_login',array("msg" => "Please log in first!"));
             return $this->redirect($url);
         }
-        $userID=$usersession->get('userID');
-        $data = $this->getpostdatas($userID);
+        $usericona = $usersession->get('usericona');
+        $userID = $usersession->get('userID');
+        $current_userid = $request->get('userid');
+        if($current_userid != null){
+            $usersession->set('current_userid',$current_userid);
+        }else{
+            $current_userid = $usersession->get('current_userid');
+            if ($current_userid == null){
+                $current_userid = $userID;
+            }
+        }
         
-        return $this->render('user/perfil.html.twig',array("data" => $data,"gestio" => "/perfil/gestiouser"));
+        $data = $this->getpostdatas($current_userid);
+        $url = $this->generateUrl('default_perfil');
+        return $this->render('user/perfil.html.twig',array("data" => $data,"gestio" => $url."gestiouser","usericona" => $usericona));
     }
 
     public function postverificationAction(Request $request)
@@ -41,7 +52,7 @@ class PerfilController extends Controller
 
     }
 
-    public function gestiouserverificationAction(Request $request)
+    public function gestiouserverification1Action(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $usersession = new Session();
@@ -60,6 +71,34 @@ class PerfilController extends Controller
         }
         $em->persist($user);
         $em->flush();
+
+        $url = $this->generateUrl('default_principal');
+        return $this->redirect($url);
+    }
+
+
+    public function gestiouserverification2Action(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usersession = new Session();
+        $userID = $usersession->get('userID');
+        $password = $request->get("password");
+        $new_password = $request->get("new_password");
+        $user = $em->getRepository("BackendBundle:InfoUsuario")->findBy(
+                array(
+                    "id" => $userID
+            ));
+        $user=$user[0];
+        $userpassword = $user->getPassword();
+        $password = hash('sha256',$password);
+        $new_password = hash('sha256',$new_password);
+        if($userpassword == $password){
+            $user->setPassword($new_password);
+            $em->persist($user);
+            $em->flush();
+        }else{
+            $info = "password is not correct!";
+        }
 
         $url = $this->generateUrl('default_perfil');
         return $this->redirect($url);
@@ -134,8 +173,9 @@ class PerfilController extends Controller
     }
 
     public function gestiouserAction(Request $request)
-    {   
-        return $this->render('user/gestio.html.twig');
+    {      
+        $url = $this->generateUrl('default_perfil');
+        return $this->render('user/gestio.html.twig',array("gestio" => $url."gestiouser"));
     }
 }
 

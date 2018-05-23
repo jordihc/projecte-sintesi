@@ -39,133 +39,66 @@ for (i = 0; i < acc.length; i++) {
     <section id="blog-section" >
      <div class="container">
        <div class="row">
-         <div class="col-lg-8">
+         <div class="col-lg-12">
            <div class="row">
              <h2>Noticies</h2>
             </div>
              <br>
-              <p>Publicar un nou post <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Crea post</button></p>
-             
+              <p>Publicar una nova noticia <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Crea noticia</button></p>
+             {% if follow == true %}
+             <button type="button" class="btn btn-info btn-md">
+                <a href="http://www.socialgaming.cat/comunitat/follow">segueix</a>
+              </button>
+              {% endif %}
              </div>
 
               
     
            </div>
           </div>
-           
-<!--           // RECENT POST===========-->
-         <div class="col-lg-4 float-right">           
-               <div class="widget-sidebar">
-                 <h2 class="title-widget-sidebar">// EVENTS</h2>
-                   <div class="content-widget-sidebar">
-                    <ul>
-                     <li class="recent-post">
-                        <div class="post-img">
-                         <img src="https://lh3.googleusercontent.com/-ndZJOGgvYQ4/WM1ZI8dH86I/AAAAAAAADeo/l67ZqZnRUO8QXIQi38bEXuxqHfVX0TV2gCJoC/w424-h318-n-rw/thumbnail8.jpg" class="img-responsive">
-                         </div>
-                         <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                         <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                        </li>
-                        <hr>
-                        
-                        <li class="recent-post">
-                        <div class="post-img">
-                         <img src="https://lh3.googleusercontent.com/-ojLI116-Mxk/WM1ZIwdnuwI/AAAAAAAADeo/4K6VpwIPSfgsmlXJB5o0N8scuI3iW4OpwCJoC/w424-h318-n-rw/thumbnail6.jpg" class="img-responsive">
-                         </div>
-                         <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                         <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                        </li>
-                        <hr>
-                        
-                        <li class="recent-post">
-                        <div class="post-img">
-                         <img src="https://lh3.googleusercontent.com/-TrK1csbtHRs/WM1ZI1SIUNI/AAAAAAAADeo/OkiUjuad6skWl9ugxbiIA_436OwsWKBNgCJoC/w424-h318-n-rw/thumbnail3.jpg" class="img-responsive">
-                         </div>
-                         <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                         <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                        </li>
-                        <hr>
-                        
-                        <li class="recent-post">
-                        <div class="post-img">
-                         <img src="https://lh3.googleusercontent.com/-UKfIhJSBW9M/WM1ZI8ou34I/AAAAAAAADeo/vlLGY29147AYLaxUW29ZXJlun115BhkhgCJoC/w424-h318-n-rw/thumbnail7.jpg" class="img-responsive">
-                         </div>
-                         <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                         <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                        </li>
-                        
-                        
-                    </ul>
-                   </div>
-                 </div>
+           <div>
              
-             <div class="widget-sidebar">
-              <h2 class="title-widget-sidebar">// ARCHIVES</h2>
-                <div class="last-post">
-                  <button class="accordion">21/4/2016</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img src="https://lh3.googleusercontent.com/-13DR8P0-AN4/WM1ZIz1lRNI/AAAAAAAADeo/XMfJ7CM-pQg9qfRuCgSnphzqhaj3SQg6QCJoC/w424-h318-n-rw/thumbnail4.jpg" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-                </div>                 
-                 <hr>
-                 <div class="last-post">
-                  <button class="accordion">5/7/2016</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img src="https://lh3.googleusercontent.com/-QlnwuVgbxus/WM1ZI1FKQiI/AAAAAAAADeo/nGSd1ExnnfIfIBF27xs8-EdBdfglqFPZgCJoC/w424-h318-n-rw/thumbnail2.jpg" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
+      {% for post in data %}
+        <div class="col-lg-4 col-md-4">
+          <aside class="modal_noticia">
+                <a  data-toggle="modal" data-target="#{{post.id}}" ><img src="{{post.img}}" class="img-responsive"></a>
+                <div class="content-title"></div>
+                <div class="content-footer">
+                <span>{{post.title}}</span>         
+                <span class="pull-right">
+                {{post.date}}               
+                </span>
                 </div>
-                 <hr>
-                 <div class="last-post">
-                  <button class="accordion">15/9/2016</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img src="https://lh3.googleusercontent.com/-wRHL_FOH1AU/WM1ZIxQZ3DI/AAAAAAAADeo/lwJr8xndbW4MHI-lOB7CQ-14FJB5f5SWACJoC/w424-h318-n-rw/thumbnail5.jpg" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-                </div>
-                 <hr>
-                 <div class="last-post">
-                  <button class="accordion">2/3/2017</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img src="https://lh3.googleusercontent.com/-QlnwuVgbxus/WM1ZI1FKQiI/AAAAAAAADeo/nGSd1ExnnfIfIBF27xs8-EdBdfglqFPZgCJoC/w424-h318-n-rw/thumbnail2.jpg" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-                </div>
-             </div>
-        
-     
+        </aside>
+        </div>
+         <div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="{{post.id}}" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <h2> {{post.title}}   </h2>
+          <img src="{{post.img}}" class="img-responsive">
+          <p>{{post.message}}</p>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+
+      {% endfor %}
+      
+           </div>   
     </section>
     <div class="container">
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     <div class="modal-content">
-   <form class="form-signin" action="postverification" method="post">
+   <form class="form-signin" action="noticiaverification" method="post" enctype="multipart/form-data">
       <div class="modal-header">
         <h4 class="modal-title">Nou Post</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -173,10 +106,13 @@ for (i = 0; i < acc.length; i++) {
       <br>
       <div class="col-md-8 col-md-offset-2">
                  <div class="col-lg-12 col-md-12">
+                     <input type="hidden" name="id_comunitat" value="{{comunitatid}}">
                      <label>Selecciona arxiu</label>
-                     <input class="form-control" name="img_post_comunitat" type="file" >
-                     <label>Escriu el cos de la publicació</label><br>
-                     <input class="form-control" type="text"  name="titol_post_comunitat">
+                     <input class="form-control" name="img_noticia" type="file" >
+                     <label>titulo</label><br>
+                     <input class="form-control" type="text"  name="titulo_noticia">
+                     <label>Escriu el messatge</label><br>
+                     <input class="form-control" type="text"  name="message_noticia">
                  </div>
               
       </div>

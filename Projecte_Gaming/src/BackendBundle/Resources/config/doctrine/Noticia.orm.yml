@@ -36,7 +36,7 @@ BackendBundle\Entity\Noticia:
             column: img_route
         imgAlt:
             type: string
-            nullable: false
+            nullable: true
             length: 999
             options:
                 fixed: false

@@ -10,10 +10,10 @@
                     }  
             }  
         </script>
-  <div class="col-md-6">
-  </div>
-  <div class="col-md-6">
-    <form class="form-signin" action="loginverification" method="post">
+<div class="col-md-12 no_pading">
+  <div class="col-md-12 fons no_pading ">
+  <div class="col-md-4 no_pading formulari_registre">
+   <form class="form-signin" action="loginverification" method="post">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Usuari</label>
       <input type="text" id="Email" name="user" class="form-control" placeholder="Email address" required autofocus>
@@ -26,18 +26,14 @@
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Entra</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-      <p>Si no estas suscrit <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Registrat</button></p>
+      <p>Si no estàs subscrit <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Registra't</button></p>
     </form>
 {% if msg is defined %}
     <p>{{msg}}</p>
 {% endif %}    
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+</div>
+  </div>
+  </div>
 
 <div class="container">
   <!-- Modal -->
@@ -79,7 +75,7 @@
     </form>
     </div>
     </div>
-    </div>
+
 </div>
 {% endblock %}
 

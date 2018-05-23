@@ -139,3 +139,4 @@ class CommentsPost
         return $this->createDate;
     }
 }
+

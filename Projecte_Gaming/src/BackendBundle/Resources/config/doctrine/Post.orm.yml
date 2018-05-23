@@ -19,7 +19,7 @@ BackendBundle\Entity\Post:
             column: id_user
         createDate:
             type: datetime
-            nullable: false
+            nullable: true
             column: create_date
         imgRoute:
             type: string

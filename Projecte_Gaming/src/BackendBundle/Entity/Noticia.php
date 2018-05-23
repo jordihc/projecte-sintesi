@@ -35,7 +35,7 @@ class Noticia
     /**
      * @var string
      */
-    private $imgAlt;
+    private $imgAlt = 'img of noticia';
 
     /**
      * @var string
@@ -197,3 +197,4 @@ class Noticia
         return $this->message;
     }
 }
+

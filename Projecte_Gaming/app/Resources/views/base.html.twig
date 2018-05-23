@@ -20,7 +20,8 @@
     <link href="/css/fontawesome.css" rel="stylesheet" type="text/css">
     <style>
 
-body{background-color:#ECF0F1;}
+body{background-color:#ECF0F1;
+      size: 16px;}
 
 .navbar-inverse {
     background-color: #34495E;
@@ -28,6 +29,7 @@ body{background-color:#ECF0F1;}
 }
 
 .navbar {
+   background-color: #34495E;
     position: relative;
     min-height: 50px;
     margin-bottom: 20px;
@@ -36,6 +38,19 @@ body{background-color:#ECF0F1;}
     
 }
 .header_tags{list-style-type: none;}
+.buscat_comunitat{width: 300px;
+        height: 200px;
+        size: 20px}
+.buscat_comunitat p{size: 20;}
+.icona{width:60px;
+        height:60px;}
+
+.icona_comunitat{width:300px;
+                 height:150px;}
+.modal_noticia{width: 300px;
+                height:300px;}
+
+
 .navbar-brand {
    
     float: left;
@@ -49,10 +64,15 @@ body{background-color:#ECF0F1;}
 .navbar-inverse .navbar-nav > li > a {
     color: #F39C12;
 }
-.navbar-inverse .navbar-nav > li > a:hover {
+.navbar-inverse  > li > a:hover {
    background-color: #009688;
 }
-
+.navbar  > li > a {
+    color: #F39C12;
+}
+.navbar  > li > a:hover {
+   background-color: #009688;
+}
 .btn-default {
     color: #333;
     background-color: #009688;
@@ -60,7 +80,18 @@ body{background-color:#ECF0F1;}
     border-radius:0px;
     color:#fff;
 }
-
+.fixed{position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+  background-color: #34495E;
+   color: #F39C12;
+   text-align: center;}
+.footer {
+   
+   background-color: #34495E;
+   color: #F39C12;
+}
 #blog-section{margin-top:40px;margin-bottom:80px;}
 .content-title{padding:5px;background-color:#fff;}
 .content-title h3 a{color:#34495E;text-decoration:none; transition: 0.5s;}
@@ -82,17 +113,17 @@ aside{
 -moz-box-shadow: 1px 4px 16px 3px rgba(199,197,199,1);
 box-shadow: 1px 4px 16px 3px rgba(199,197,199,1);}
 aside .content-footer>img {
-    width: 33px;
-    height: 33px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     margin-right: 10px;
     border: 2px solid #fff;
 }
-
+.border{border-style: solid;}
 .user-ditels {
     width: 300px;
     top: -100px;
-    height: 100px;
+    height: 120px;
     padding-bottom: 99px;
     position: absolute;
     border: solid 2px #fff;
@@ -100,13 +131,14 @@ aside .content-footer>img {
     right: 25px;
     display: none;
     z-index: 1;
+    display: flex; 
 }
 
 @media (max-width:768px){
     .user-ditels {   
     right: 5px;   
 }
-    
+  
 }
 .user-small-img{cursor: pointer;}
 
@@ -268,11 +300,11 @@ button.accordion.active:after {
     <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header float-left">
-      <img class="icona " src="...">
+      <a href=/perfil><img class="icona " src="{{usericona}}"></a>
     </div>
-    <li class="header_tags"><a href={{gestio}}>gestió</a></li>
+    <li class="header_tags"><a href={{gestio}}>Gestió</a></li>
     <li class="header_tags"><a href="#"><span class="glyphicon glyphicon-user "></span> Sign Up</a></li>
-    <li class="header_tags"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+    <li class="header_tags"><a href="/  "><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
     
     <li class="header_tags">
           <form class="navbar-form navbar-left" action="searchresult" method="post">
@@ -280,8 +312,6 @@ button.accordion.active:after {
     <option value="0" selected>Usuari</option>
     <option value="1">Comunitat</option>
   </select>
-  </li>
-  <li class="header_tags">
   <div class="input-group">
     <input type="text" class="form-control" name="buscador" placeholder="Search">
     <div class="input-group-btn">
@@ -297,39 +327,26 @@ button.accordion.active:after {
 </nav>
         {% block body %}
 
-
+<div class="fixed">
         {% endblock %}
     <footer class="page-footer font-small blue pt-4 mt-4">
 
     <!--Footer Links-->
     <div class="container-fluid text-center text-md-left">
-        <div class="row">
-
-            <!--First column-->
-            <div class="col-md-6">
-                <h5 class="text-uppercase">Footer Content</h5>
-                <p>Si tens algún problema o necessites ajuda, contacta <a>info@socialgaming.cat</a></p>
-            </div>
-            <!--/.First column-->
-
-            <!--Second column-->
-            <div class="col-md-6">
-             <p>Here you can use rows and columns here to organize your footer content.</p>
-            </div>
-            <!--/.Second column-->
-        </div>
+       
     </div>
     <!--/.Footer Links-->
 
     <!--Copyright-->
-    <div class="footer-copyright py-3 text-center">
-        © 2018 Copyright:
-        <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> Socialgaming.com </a>
+    <div class="footer-copyright py-3 text-center footer">
+        © 2018 Copyright:Socialgaming.com 
+                <p>Si tens algún problema o necessites ajuda, contacta info@socialgaming.cat</p>
+            </div>
     </div>
     <!--/.Copyright-->
 
 </footer>
-
+<div>
    
   </body>
 </html>

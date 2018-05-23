@@ -139,3 +139,4 @@ class CommentsNoticia
         return $this->createDate;
     }
 }
+

@@ -52,15 +52,22 @@ for (i = 0; i < acc.length; i++) {
 		<h2>Gestiona la teva conta</h2>
 	</div>
 	<div class="row">
+
 		<div class="col-md-offset-4">
-			<form name="guardar_dades" action="gestiouserverification" method="post" enctype="multipart/form-data" >
+			<form name="guardar_dades" action="gestiouserverification1" method="post" enctype="multipart/form-data" >
+
 				<label>Icona</label>
 				<input type="file" name="icona" class="form-control" >
 				<br>
 				<label>Email</label>
 				<input type="email" name="email" class="form-control">
-				<br>
-<!-- 				<label>Contrasenya actual</label>
+				<br/>
+				<input type="submit" name="canvis" id="canvis" value="Guardar informacio" class="btn btn-primary" >
+				<br/>
+			</form>
+
+			<form name="guardar_dades" action="gestiouserverification2" method="post" enctype="multipart/form-data" >
+				<label>Contrasenya actual</label>
 				<input type="password" name="password" class="form-control" required>
 				<br>
 				<label>Nova contrasenya</label>
@@ -68,8 +75,8 @@ for (i = 0; i < acc.length; i++) {
 				<br>
 				<label>Repeteix la nova contrasenya</label>
 				<input type="password" name="re_new_password" id="re_new_password" class="form-control" onblur="check2pwd()" placeholder="Rewrite password" required>
-				<br> -->
-				<input type="submit" name="canvis" id="canvis" value="Guardar canvis" class="btn btn-primary" >
+				<br/>
+				<input type="submit" name="canvis" id="canvis" value="Canvia contrasenya" class="btn btn-primary" >
 			</form>
 		</div>
 	</div>

@@ -3,9 +3,9 @@ default_principal:
     defaults: { _controller: "AppBundle:Comunitat:principal"}
     methods:  GET
 
-default_post:
-    path:   /postverification
-    defaults: { _controller: "AppBundle:Comunitat:postverification"}
+default_noticia:
+    path:   /noticiaverification
+    defaults: { _controller: "AppBundle:Comunitat:noticiaverification"}
     methods:  POST
 
 default_gestio:
@@ -13,7 +13,17 @@ default_gestio:
     defaults: { _controller: "AppBundle:Comunitat:gestio"}
     methods:  GET
 
-default_gestio_noticies:
-    path:   /gestioNoticies
-    defaults: { _controller: "AppBundle:Comunitat:gestioNoticies"}
+default_follow:
+    path:   /follow
+    defaults: { _controller: "AppBundle:Comunitat:follow"}
     methods:  GET
+
+default_resultat_c:
+    path:   /searchresult
+    defaults: { _controller: "AppBundle:User:searchresult"}
+    methods:  POST
+
+default_comunitat_verification:
+    path:   /comunitatverification
+    defaults: { _controller: "AppBundle:Comunitat:comunitatverification"}
+    methods:  POST

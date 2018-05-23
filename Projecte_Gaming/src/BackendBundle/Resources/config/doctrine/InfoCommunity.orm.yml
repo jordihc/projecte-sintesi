@@ -41,4 +41,11 @@ BackendBundle\Entity\InfoCommunity:
                 fixed: false
                 default: /uploads/community/default.png
             column: img_avatar
+        imgTitle:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+            column: img_title
     lifecycleCallbacks: {  }

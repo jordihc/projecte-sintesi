@@ -1,0 +1,29 @@
+BackendBundle\Entity\Follow:
+    type: entity
+    table: follow
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_user
+        idCommunity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_community
+        followdate:
+            type: datetime
+            nullable: false
+    lifecycleCallbacks: {  }

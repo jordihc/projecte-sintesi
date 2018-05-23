@@ -32,6 +32,16 @@ class InfoCommunity
      */
     private $createDate;
 
+    /**
+     * @var string
+     */
+    private $imgAvatar = '/uploads/community/default.png';
+
+    /**
+     * @var string
+     */
+    private $imgTitle;
+
 
     /**
      * Get id
@@ -138,11 +148,6 @@ class InfoCommunity
     {
         return $this->createDate;
     }
-    /**
-     * @var string
-     */
-    private $imgAvatar = '/uploads/community/default.png';
-
 
     /**
      * Set imgAvatar
@@ -167,4 +172,29 @@ class InfoCommunity
     {
         return $this->imgAvatar;
     }
+
+    /**
+     * Set imgTitle
+     *
+     * @param string $imgTitle
+     *
+     * @return InfoCommunity
+     */
+    public function setImgTitle($imgTitle)
+    {
+        $this->imgTitle = $imgTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get imgTitle
+     *
+     * @return string
+     */
+    public function getImgTitle()
+    {
+        return $this->imgTitle;
+    }
 }
+
