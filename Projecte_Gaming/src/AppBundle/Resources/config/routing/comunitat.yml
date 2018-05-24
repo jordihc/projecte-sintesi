@@ -8,9 +8,9 @@ default_noticia:
     defaults: { _controller: "AppBundle:Comunitat:noticiaverification"}
     methods:  POST
 
-default_gestio:
-    path:   /gestio
-    defaults: { _controller: "AppBundle:Comunitat:gestio"}
+default_gestiocomunitat:
+    path:   /gestiocomunitat
+    defaults: { _controller: "AppBundle:Comunitat:gestiocomunitat"}
     methods:  GET
 
 default_follow:
@@ -27,3 +27,8 @@ default_comunitat_verification:
     path:   /comunitatverification
     defaults: { _controller: "AppBundle:Comunitat:comunitatverification"}
     methods:  POST
+
+default_logout_comunitat:
+    path:   /logout
+    defaults: { _controller: "AppBundle:User:logout"}
+    methods:  GET

@@ -31,10 +31,11 @@ class PerfilController extends Controller
                 $current_userid = $userID;
             }
         }
-        
+        $usernoticia = $this->getusernoticia($current_userid);
+       
         $data = $this->getpostdatas($current_userid);
         $url = $this->generateUrl('default_perfil');
-        return $this->render('user/perfil.html.twig',array("data" => $data,"gestio" => $url."gestiouser","usericona" => $usericona));
+        return $this->render('user/perfil.html.twig',array("data" => $data,"gestio" => $url."gestiouser","logout" => $url."logout","usericona" => $usericona,"usernoticia" => $usernoticia ));
     }
 
     public function postverificationAction(Request $request)
@@ -173,9 +174,49 @@ class PerfilController extends Controller
     }
 
     public function gestiouserAction(Request $request)
-    {      
-        $url = $this->generateUrl('default_perfil');
-        return $this->render('user/gestio.html.twig',array("gestio" => $url."gestiouser"));
+    {   
+        $usersession = new Session();
+        $url1 = $this->generateUrl('default_perfil');
+        $url2 = $this->generateUrl('default_principal');
+        $comunitatid = $usersession->get('current_comunitatid');
+        $user = $usersession->get("userID");
+        $usericona = $usersession->get('usericona');
+        if($comunitatid != null){
+            $em = $this->getDoctrine()->getManager();
+            $isset_user = $em->getRepository("BackendBundle:InfoCommunity")->findBy(
+                    array(
+                        "id" => $comunitatid
+                ));
+            $admin = $isset_user[0]->getIdAdmin();
+            if ($user == $admin){
+                $data = array("gestio" => $url1."gestiouser","logout" => $url1."logout","gestiocomunitat" => $url2."gestiocomunitat","usericona" => $usericona);}
+            else{
+                $data = array("gestio" => $url1."gestiouser","logout" => $url1."logout","usericona" => $usericona);  
+            }
+        }else{
+            $data = array("gestio" => $url1."gestiouser","logout" => $url1."logout","usericona" => $usericona);  
+        }
+        
+        
+        return $this->render('user/gestio.html.twig',$data);
     }
-}
+
+    public function getusernoticia($userid)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $sql="SELECT p.idCommunity,p.createDate,p.title,p.imgRoute,p.imgAlt,p.message FROM BackendBundle:Noticia p inner join BackendBundle:Follow q where q.idUser = :userid and q.idCommunity = p.idCommunity ORDER BY p.createDate DESC";
+        $users = $em->createQuery($sql);
+        $users->setParameter('userid', $userid);
+        $result = $users->getResult();
+        $results = array();
+        foreach($result as $noticia){
+            $noticia['createDate'] = $noticia['createDate']->format('Y-m-d H:i:s');
+            array_push($results,$noticia);
+        }
+        $results = array_slice($results,0,4);
+        return $results;  
+
+    }
+}   
 

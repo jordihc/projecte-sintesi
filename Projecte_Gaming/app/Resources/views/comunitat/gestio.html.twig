@@ -64,28 +64,19 @@ for (i = 0; i < acc.length; i++) {
         </nav>
     </div>
 		<div class="col-md-7  ">
-			<form name="guardar_dades" action="guardar_dades" method="post">
+			<form name="comunitatverification" action="/comunitat/comunitatverification" method="post" enctype="multipart/form-data">
 				<label class="control-label">Nom</label>
-				<input type="nom" name="nom" class="form-control" required>
+				<input type="text" name="name" class="form-control" required>
 				<br>
-				<label>Usuari</label>
-				<input type="text" name="usuasri" class="form-control" required>
-				<br>
-				<label>Icona</label>
-				<input type="file" name="icona" class="form-control" >
-				<br>
-				<label>Email</label>
-				<input type="email" name="email" class="form-control" required >
-				<br>
-				<label>Contrasenya actual</label>
-				<input type="password" name="password" class="form-control" required>
-				<br>
-				<label>Nova contrasenya</label>
-				<input type="password" name="new_password"  id="new_password" class="form-control" required>
-				<br>
-				<label>Repeteix la nova contrasenya</label>
-				<input type="password" name="re_new_password" id="re_new_password" class="form-control" onblur="check2pwd()" placeholder="Rewrite password" required>
-				<br>
+				<label class="control-label">Description</label>
+        <input type="text" name="description" class="form-control" required>
+        <br>
+        <label class="control-label">imatge del avatar</label>
+        <input type="file" name="avatar" class="form-control" required>
+        <br>
+        <label class="control-label">imatge de capçalera</label>
+        <input type="file" name="imgtitle" class="form-control" required>
+        <br>
 				<input type="submit" name="canvis" id="canvis" value="Guardar canvis" class="btn btn-primary" >
 			</form>
 		</div>

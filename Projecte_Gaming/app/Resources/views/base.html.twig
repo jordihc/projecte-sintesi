@@ -27,7 +27,7 @@ body{background-color:#ECF0F1;
     background-color: #34495E;
     border-color: #34495E;
 }
-
+.link {font-size: 16px;color: #fff;}
 .navbar {
    background-color: #34495E;
     position: relative;
@@ -42,14 +42,18 @@ body{background-color:#ECF0F1;
         height: 200px;
         size: 20px}
 .buscat_comunitat p{size: 20;}
+.lletra_principal{size: 14px;}
 .icona{width:60px;
         height:60px;}
 
 .icona_comunitat{width:300px;
                  height:150px;}
-.modal_noticia{width: 300px;
+.modal_noticia{width: 350px;
                 height:300px;}
-
+.modal_post{width: 300px;
+                height:300px;}
+.img_post{width:100%;
+          height: 75%; }
 
 .navbar-brand {
    
@@ -163,18 +167,6 @@ aside .content-footer>img {
      padding-right: 20px;
     padding-top: 5px;
    text-align: right;}
-.social-icon {
-    background-color: #fff;
-    margin-top: 10px;
-    padding-right: 20px;
-    text-align: right;
-}
-.social-icon>a{font-size:20px;text-decoration:none;padding: 5px;}
-.social-icon a:nth-of-type(1){color:#4E71A8;}
-.social-icon a:nth-of-type(2){color:#3FA1DA;}
-.social-icon a:nth-of-type(3){color:#E3411F;}
-.social-icon a:nth-of-type(4){color:#CA3737;}
-.social-icon a:nth-of-type(5){color:#3A3A3A;}
 
 
 /*recent-post-col////////////////////*/
@@ -302,9 +294,11 @@ button.accordion.active:after {
     <div class="navbar-header float-left">
       <a href=/perfil><img class="icona " src="{{usericona}}"></a>
     </div>
-    <li class="header_tags"><a href={{gestio}}>Gestió</a></li>
-    <li class="header_tags"><a href="#"><span class="glyphicon glyphicon-user "></span> Sign Up</a></li>
-    <li class="header_tags"><a href="/  "><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+    <li class="header_tags"><a class="link" href={{gestio}}>Gestió</a></li>
+    {% if gestiocomunitat is defined %}
+    <li class="header_tags"><a class="link" href={{gestiocomunitat}}><span class="glyphicon glyphicon-user "></span>Gestió comunitat</a></li>
+    {% endif %}
+    <li class="header_tags"><a  class="link" href={{logout}}><span class="glyphicon glyphicon-log-in">&emsp;</span>Log out</a></li>
     
     <li class="header_tags">
           <form class="navbar-form navbar-left" action="searchresult" method="post">

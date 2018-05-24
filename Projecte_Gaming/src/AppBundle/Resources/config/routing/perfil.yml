@@ -27,3 +27,8 @@ default_resultat:
     path:   /searchresult
     defaults: { _controller: "AppBundle:User:searchresult"}
     methods:  POST
+
+default_logout_perfil:
+    path:   /logout
+    defaults: { _controller: "AppBundle:User:logout"}
+    methods:  GET

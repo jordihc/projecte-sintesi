@@ -117,6 +117,17 @@ class UserController extends Controller
     
     }
 
+    public function logoutAction(Request $request)
+    {
+        $usersession = new Session();
+        $usersession->remove('userID');
+        $usersession->remove('usericona');
+        $usersession->remove('current_comunitatid');
+        $url = $this->generateUrl('default_login',array('msg' => 'log out sucessfully!'));
+
+        return $this->redirect($url);
+    }
+
     public function searchresultAction(Request $request)
     {   
         $usersession = new Session();
@@ -139,11 +150,11 @@ class UserController extends Controller
         $arraydata = $this->generaresult($result,$tipo);
         $usericona = $usersession->get('usericona');
 
-        $url = $this->generateUrl('default_login');
+        $url = $this->generateUrl('default_perfil');
         if ($tipo==0){
-             $data= array("data" => $arraydata,"gestio" => $url."gestio","comprova"=>true,"usericona" => $usericona);
+             $data= array("data" => $arraydata,"gestio" => $url."gestiouser","comprova"=>true,"usericona" => $usericona,"logout" =>  $url."logout");
         }
-        else{$data= array("data" => $arraydata,"gestio" => $url."gestio","comprova"=>false,"usericona" => $usericona);}
+        else{$data= array("data" => $arraydata,"gestio" => $url."gestiouser","comprova"=>false,"usericona" => $usericona,"logout" =>  $url."logout");}
         
       
         
@@ -193,9 +204,7 @@ class UserController extends Controller
             array_push($data,$objectdata);
         }
 
-
-
-
         return $data;
     }
+    
 }

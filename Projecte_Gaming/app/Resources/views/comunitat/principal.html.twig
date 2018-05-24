@@ -32,8 +32,7 @@ for (i = 0; i < acc.length; i++) {
 {% block body %}
 
     <div class="row">
-      <div class=" col-md-6 col-md-offset-3 " background-color="blue">Aqui va la foto del titul de la comunitat       
-      </div>
+      <img src = {{imgtitle}} alt="">
     </div>
   
     <section id="blog-section" >
@@ -61,7 +60,7 @@ for (i = 0; i < acc.length; i++) {
       {% for post in data %}
         <div class="col-lg-4 col-md-4">
           <aside class="modal_noticia">
-                <a  data-toggle="modal" data-target="#{{post.id}}" ><img src="{{post.img}}" class="img-responsive"></a>
+                <a  data-toggle="modal" data-target="#{{post.id}}" ><img src="{{post.img}}" class="img-responsive img_post"></a>
                 <div class="content-title"></div>
                 <div class="content-footer">
                 <span>{{post.title}}</span>         
@@ -111,8 +110,8 @@ for (i = 0; i < acc.length; i++) {
                      <input class="form-control" name="img_noticia" type="file" >
                      <label>titulo</label><br>
                      <input class="form-control" type="text"  name="titulo_noticia">
-                     <label>Escriu el messatge</label><br>
-                     <input class="form-control" type="text"  name="message_noticia">
+                     <label>Escriu el missatge</label><br>
+                     <textarea class="form-control"  name="message_noticia"> </textarea> 
                  </div>
               
       </div>

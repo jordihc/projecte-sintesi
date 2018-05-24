@@ -39,13 +39,15 @@ for (i = 0; i < acc.length; i++) {
         <div class="row">
         {% for post in data %}
         
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-3 col-md-3">
         <aside class="buscat">
 
-                <a href="{{post.url}}?userid={{post.id}}">
-                <img src="{{post.usericona}}" class="img-responsive icona">
-                <p>{{post.user}}</p>
-                </a>
+                <a  class="link" href="{{post.url}}?userid={{post.id}}">
+                <img src="{{post.usericona}}" class="img-responsive post-img">
+                <div class="content-footer">
+                    <p>{{post.user}}</p>
+                </div> 
+               </a> 
         </aside>
         </div>
         
@@ -59,11 +61,13 @@ for (i = 0; i < acc.length; i++) {
         {% for post in data %}
 
 
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-3 col-md-3">
         <aside class="buscat_comunitat">
-                <a href="{{post.url}}?comunitatid={{post.id}}"><img src="{{post.imgavatar}}" class="img-responsive">      
-
-                <p>{{post.name}}</p></a>               
+                <a class="link" href="{{post.url}}?comunitatid={{post.id}}"><img src="{{post.imgavatar}}" class=" post-imgimg-responsive">   
+                <div class="content-footer">
+                    <p ">{{post.name}}</p>
+                </div> 
+               </a>              
         </aside>
 
         </div>

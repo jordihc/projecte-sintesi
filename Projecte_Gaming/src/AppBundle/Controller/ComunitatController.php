@@ -39,27 +39,48 @@ class ComunitatController extends Controller
                         "id" => $comunitatid
                 ));
             $admin = $isset_user[0]->getIdAdmin();
+            $imgtitle = $this->generateUrl('default_login').$isset_user[0]->getImgTitle();
             if ($user == $admin){
-                $isadmin = "S";
+                $isadmin = true;
             }else{
-                $isadmin = "N";
+                $isadmin = false;
             }
             $datacom = $this->getnoticia($comunitatid);
             $urlfollow = $this->generateUrl('default_follow');
+            $urluser = $this->generateUrl('default_perfil');
+            $urlcomunitat = $this->generateUrl('default_principal');
+            if ($isadmin == true){
+                
             $data =  array(
+                "imgtitle" => $imgtitle,
                  "data" => $datacom,
-                 "gestio" => "/comunitat/gestio",
+                 "gestio" => $urluser."gestiouser",
                  "isadmin" => $isadmin,
                  "comunitatid" => $comunitatid,
                  "usericona" => $usericona,
-                 "follow" => $urlfollow
+                 "follow" => $urlfollow,
+                 "logout" => $urlcomunitat."logout",
+                 "gestiocomunitat" => $urlcomunitat."gestiocomunitat"
              );
-        }else{
+            }else{
             $data =  array(
-                 "gestio" => "/comunitat/gestio",
+                "imgtitle" => $imgtitle,
+                 "data" => $datacom,
+                 "gestio" => $urluser."gestiouser",
+                 "isadmin" => $isadmin,
                  "comunitatid" => $comunitatid,
                  "usericona" => $usericona,
-                 "follow" => true
+                 "follow" => $urlfollow,
+                 "logout" => $urlcomunitat."logout");
+            }
+        }else{
+            $data =  array(
+                "imgtitle" => $imgtitle,
+                 "gestio" => $urluser."gestiouser",
+                 "comunitatid" => $comunitatid,
+                 "usericona" => $usericona,
+                 "follow" => true,
+                 "logout" => $urlcomunitat."logout"
              );
         }
         $usersession->set('datanoticies',$data);
@@ -99,11 +120,13 @@ class ComunitatController extends Controller
         $file = $request->files->get("img_noticia");
         $imgruta = $this->savefile2($file,"uploads/noticiaimg");
         $this->setnoticia($comunitatID,$messages,$title,$imgruta);
-
+        $urluser = $this->generateUrl('default_perfil');
+        $urlcomunitat = $this->generateUrl('default_principal');
         $data =  array(
-                 "gestio" => "/comunitat/gestio",
+                 "gestio" => $urluser."gestiouser",
                  "isadmin" => "S",
-                 "usericona" => $usericona
+                 "usericona" => $usericona,
+                 "logout" => $urlcomunitat."logout"
              );
         $url = $this->generateUrl('default_principal',$data);
         return $this->redirect($url);
@@ -126,14 +149,13 @@ class ComunitatController extends Controller
         $data = array();
         foreach($noticia as $noticia_values){
             $noticiadata=array();
-            $noticiaid = $noticia_values->getId();
             $noticiatitle = $noticia_values->getTitle();
             $noticiaimg = $noticia_values->getImgRoute();
             $noticiadate = $noticia_values->getCreateDate()->format('Y-m-d H:i:s');
             $noticiamessage = $noticia_values->getMessage();
             $noticiaruta = "/".$noticiaimg;
             $noticiadata=array(
-                "id" =>  $noticiaid,
+                "imgtitle" => $imgtitle,
                 "title" =>  $noticiatitle,
                 "img" => $noticiaruta,
                 "date" => $noticiadate,
@@ -168,39 +190,62 @@ class ComunitatController extends Controller
 
 
 
-    public function gestioAction(Request $request)
+    public function gestiocomunitatAction(Request $request)
     {
-        
-        return $this->render('comunitat/gestio.html.twig');
+        $usersession = new Session();
+        $usericona = $usersession->get('usericona');
+        $urluser = $this->generateUrl('default_perfil');
+        $urlcomunitat = $this->generateUrl('default_principal');
+        $data =  array(
+                 "gestio" => $urluser."gestiouser",
+                 "usericona" => $usericona,
+                 "logout" => $urlcomunitat."logout",
+                 "gestiocomunitat" => $urlcomunitat."gestiocomunitat"
+             );
+        return $this->render('comunitat/gestio.html.twig',$data);
 
         
     }
 
 
-    public function comunitatverification(Request $request)
+    public function comunitatverificationAction(Request $request)
     {
-        $name = $request->get('name');
-        $description = $request->get('description');
-        $avatar = $request->files->get('avatar');
-        $imgtitle = $request->get('imgtitle');
+        $name = $request->get('name',null);
+        $description = $request->get('description',null);
+        $avatar = $request->files->get('avatar',null);
+        $imgtitle = $request->files->get('imgtitle',null);
+        if ($avatar != null){
         $avatar = $this->savefile2($avatar,"uploads/community");
+        }
+        if ($imgtitle != null){
+        $imgtitle = $this->savefile2($imgtitle,"uploads/community/title");
+        }
         $em = $this->getDoctrine()->getManager();
         $usersession = new Session();
-        $userID = $usersession->get('current_comunitatID');
-        $file = $request->files->get("icona");
-        $email = $request->get("email",null);
-        $user = $em->getRepository("BackendBundle:InfoUsuario")->findBy(
+        $comunitatid = $usersession->get('current_comunitatid');
+        $comunitat = $em->getRepository("BackendBundle:InfoCommunity")->findBy(
                 array(
-                    "id" => $userID
+                    "id" => $comunitatid
             ));
-        $user=$user[0];
-        $IconaRoute = $this->savefile($file,"uploads/usericona");
-        $user->setIcona($IconaRoute);
-        if($email != null){
-        $user->setEmail($email);
+        $comunitat = $comunitat[0];
+        if($name != null){
+            $comunitat->setName($name);
         }
-        $em->persist($user);
+        if($description != null){
+            $comunitat->setDescription($description);
+        }
+        if($avatar != null){
+            $comunitat->setImgAvatar($avatar);
+        }
+        if($imgtitle != null){
+            $comunitat->setImgTitle($imgtitle);
+        }
+
+        $em->persist($comunitat);
         $em->flush();
+        
+        $url = $this->generateUrl('default_principal');
+        return $this->redirect($url);
     }
 
 
