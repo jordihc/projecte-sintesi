@@ -60,7 +60,8 @@ class ComunitatController extends Controller
                  "usericona" => $usericona,
                  "follow" => $urlfollow,
                  "logout" => $urlcomunitat."logout",
-                 "gestiocomunitat" => $urlcomunitat."gestiocomunitat"
+                 "gestiocomunitat" => $urlcomunitat."gestiocomunitat",
+                 "contacte" => $url."contacte"
              );
             }else{
             $data =  array(
@@ -71,11 +72,12 @@ class ComunitatController extends Controller
                  "comunitatid" => $comunitatid,
                  "usericona" => $usericona,
                  "follow" => $urlfollow,
-                 "logout" => $urlcomunitat."logout");
+                 "logout" => $urlcomunitat."logout",
+                 "contacte" => $url."contacte"
+             );
             }
         }else{
             $data =  array(
-                "imgtitle" => $imgtitle,
                  "gestio" => $urluser."gestiouser",
                  "comunitatid" => $comunitatid,
                  "usericona" => $usericona,
@@ -126,7 +128,8 @@ class ComunitatController extends Controller
                  "gestio" => $urluser."gestiouser",
                  "isadmin" => "S",
                  "usericona" => $usericona,
-                 "logout" => $urlcomunitat."logout"
+                 "logout" => $urlcomunitat."logout",
+                 "contacte" => $urluser."contacte"
              );
         $url = $this->generateUrl('default_principal',$data);
         return $this->redirect($url);
@@ -149,13 +152,14 @@ class ComunitatController extends Controller
         $data = array();
         foreach($noticia as $noticia_values){
             $noticiadata=array();
+            $noticiaid = $noticia_values->getId();
             $noticiatitle = $noticia_values->getTitle();
             $noticiaimg = $noticia_values->getImgRoute();
             $noticiadate = $noticia_values->getCreateDate()->format('Y-m-d H:i:s');
             $noticiamessage = $noticia_values->getMessage();
             $noticiaruta = "/".$noticiaimg;
             $noticiadata=array(
-                "imgtitle" => $imgtitle,
+                "id" => $noticiaid,
                 "title" =>  $noticiatitle,
                 "img" => $noticiaruta,
                 "date" => $noticiadate,
@@ -200,7 +204,8 @@ class ComunitatController extends Controller
                  "gestio" => $urluser."gestiouser",
                  "usericona" => $usericona,
                  "logout" => $urlcomunitat."logout",
-                 "gestiocomunitat" => $urlcomunitat."gestiocomunitat"
+                 "gestiocomunitat" => $urlcomunitat."gestiocomunitat",
+                 "contacte" => $urluser."contacte"
              );
         return $this->render('comunitat/gestio.html.twig',$data);
 
@@ -259,7 +264,7 @@ class ComunitatController extends Controller
                      $file->move($destino, $file_name);
                      $imgRoute = $destino."/".$file_name;
             }}else{
-                $imgRoute = "uploads/usericona/avatardefault.png";
+                $imgRoute = "uploads/community/avatardefault.png";
             }
         return $imgRoute;
     }

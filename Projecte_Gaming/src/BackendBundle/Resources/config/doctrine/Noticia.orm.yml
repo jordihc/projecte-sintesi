@@ -13,17 +13,17 @@ BackendBundle\Entity\Noticia:
     fields:
         idCommunity:
             type: integer
-            nullable: false
+            nullable: true
             options:
                 unsigned: false
             column: id_community
         createDate:
             type: datetime
-            nullable: false
+            nullable: true
             column: create_date
         title:
             type: string
-            nullable: false
+            nullable: true
             length: 999
             options:
                 fixed: false
@@ -44,7 +44,7 @@ BackendBundle\Entity\Noticia:
             column: img_alt
         message:
             type: string
-            nullable: false
+            nullable: true
             length: 999
             options:
                 fixed: false

@@ -25,27 +25,27 @@ BackendBundle\Entity\InfoUsuario:
                 fixed: false
         name:
             type: string
-            nullable: false
+            nullable: true
             length: 999
             options:
                 fixed: false
         email:
             type: string
-            nullable: false
+            nullable: true
             length: 999
             options:
                 fixed: false
         active:
             type: integer
-            nullable: false
+            nullable: true
             options:
                 unsigned: false
                 default: '0'
         icona:
             type: string
-            nullable: false
+            nullable: true
             length: 999
             options:
                 fixed: false
-                default: uploads/user/default.png
+                default: uploads/usericona/avatardefault.png
     lifecycleCallbacks: {  }

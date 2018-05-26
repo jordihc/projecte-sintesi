@@ -22,17 +22,23 @@ for (i = 0; i < acc.length; i++) {
       panel.style.maxHeight = panel.scrollHeight + "px";
     } 
   }
+
+$(function(){
+    var text = $(".nou_text").html();
+    alert(text);
+    if(text.length > 20){
+    var text1 = text.substr(0,19);
+    var text2 = text.substr(20);
+    $(".nou_text").html(text1+"<br>");
+    $(".nou_text").append(text2);
+}
+});
 }
 </script>
 
 {% endblock %}
 {% block body %}
-<body>
-   
 
-
-    
-   
     <section id="blog-section" > 
      <div class="container">
       
@@ -42,14 +48,16 @@ for (i = 0; i < acc.length; i++) {
 
         <div class="col-lg-8 col-md-8">
         <h2>Posts</h2>&nbsp;
+        {% if createpost == true %}
         <p class="lletra_principal">Publicar un nou post <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Crea post</button></p>
+        {% endif %}
         {% for post in data %}
         <div class="col-lg-6 col-md-6">
         <aside class="modal_post">
-               <img src="{{post.img}}" class="img-responsive img_post">
+               <img src="{{post.img}}" class="img-responsive img_post" alt="postimg">
                 <div class="content-title"></div>
         				<div class="content-footer">
-        				<span>{{post.messages}}</span><br>
+        				<span class="nou_text">{{post.messages}}</span><br>
         				<span style="font-size: 16px;color: #fff;">{{post.user}}</span>
         				<span class="pull-right">
         				
@@ -62,21 +70,32 @@ for (i = 0; i < acc.length; i++) {
 			{% endfor %}
         </div>
               
-              <div class="col-lg-4 float-right">           
+              <div class="col-lg-4 float-right " >           
                <div class="widget-sidebar">
                  <h2 class="title-widget-sidebar">NOTICIES</h2>
                    <div class="content-widget-sidebar">
                     <ul>
                     {% for post in usernoticia %}
                      <li class="recent-post">
-                        <div class="post-img">
-                         <img src="/{{post.imgRoute}}" class="img-responsive">
+                        <div class="post-img" data-toggle="modal" data-target="#{{post.id}}">
+                         <img src="/{{post.imgRoute}}" class="img-responsive" alt="postimg">
                          </div>
-                         <a href="#"><h5>{{post.title}}</h5></a>
+                         <a data-toggle="modal" data-target="#{{post.id}}"><h5>{{post.title}}</h5></a>
                          <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> {{post.createDate}}</small></p>
                         </li>
-                        <hr>
-                        {% endfor %}
+                        <li>
+                          <div class="modal fade" id="{{post.id}}" role="dialog">
+                          <div class="modal-dialog">
+                             <div class="modal-content">
+                               <h2> {{post.title}}   </h2>
+                                 <img src="/{{post.imgRoute}}" alt="post.img" class="img-responsive">
+                                   <p>{{post.message}}</p>
+                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                             </div>
+                           </li>
+                      {% endfor %}
                       
                     
                         
@@ -86,9 +105,6 @@ for (i = 0; i < acc.length; i++) {
           </div>
            </div>
         </div>
-          </div>
-         
-           </div>
           </div>
     </section>
     

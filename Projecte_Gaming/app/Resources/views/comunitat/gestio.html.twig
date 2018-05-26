@@ -41,29 +41,10 @@ for (i = 0; i < acc.length; i++) {
 
 {% endblock %}
 {% block body %}
-<body>
-   
-  
 <div class="container">
 	<div class="row">
-     <div class="col-md-3 ">
-     </div>
-		<h2>Gestiona la teva conta</h2>
-	</div>
-	<div class="row">
-    <div class="col-md-3 ">
-        <nav class="navbar navbar-inverse radius">
-            <div class="container radius"> 
-                <div class="navbar-header radius">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/comunitat/gestio">Gestiona dades</a></li>
-                        <li><a href="/comunitat/gestioNoticies">Afegeix noticies</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-		<div class="col-md-7  ">
+     <div class="col-lg-8 col-md-8">
+		 <h2>Gestiona la teva conta</h2><br>
 			<form name="comunitatverification" action="/comunitat/comunitatverification" method="post" enctype="multipart/form-data">
 				<label class="control-label">Nom</label>
 				<input type="text" name="name" class="form-control" required>
@@ -82,18 +63,7 @@ for (i = 0; i < acc.length; i++) {
 		</div>
 	</div>
 </div>
-   
-
-       
-
-
-
-</body>
-
-
-
-
-                
+             
                
 
 {% endblock %}

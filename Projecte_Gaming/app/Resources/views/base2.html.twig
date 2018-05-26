@@ -1,25 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="ca">
   <head>
+    <title>SocialGaming</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/js/jquery-3.1.1.js"></script>
     <script src="/js/bootstrap.js"></script>
-    
-    
-     {% block javascripts %}
+    {% block javascripts %}
     {% endblock %}
-    <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/css/fontawesome.css" rel="stylesheet" type="text/css">
     <style>
-    .fons{width: 1200px;
+    body {
+        background-image: url("fons.jpg");
+        background-repeat: no-repeat, repeat;
+        background-repeat: no-repeat;
+        background-size: 1535px;
+    }
+/*    .fons{width: 1200px;
     		height: 600px;
     	background-image: url("fons.jpg");}
    	.no_padding{padding: 0px;}
@@ -28,13 +32,11 @@
     background: color url('fons.jpg') others;
 }
    .formulari_registre{background-color:white
-   						opacity:0.75; }
+   						opacity:0.75; }*/
     </style>
     </head>
     <body>
     {% block body %}
-
-
-        {% endblock %}
+    {% endblock %}
     </body>
 </html>

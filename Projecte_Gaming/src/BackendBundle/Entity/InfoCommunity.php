@@ -35,7 +35,7 @@ class InfoCommunity
     /**
      * @var string
      */
-    private $imgAvatar = '/uploads/community/default.png';
+    private $imgAvatar = '/uploads/community/avatardefault.png';
 
     /**
      * @var string

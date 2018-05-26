@@ -30,7 +30,7 @@ BackendBundle\Entity\Post:
             column: img_route
         messages:
             type: string
-            nullable: false
+            nullable: true
             length: 999
             options:
                 fixed: false

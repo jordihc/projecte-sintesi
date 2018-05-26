@@ -30,38 +30,36 @@ for (i = 0; i < acc.length; i++) {
 
 
 {% block body %}
-
-    <div class="row">
-      <img src = {{imgtitle}} alt="">
+  
+    <div class ="container">
+    <div class="row titol">
+      <img src = {{imgtitle}} class="img_titol img-responsive" alt="imgtitle">
     </div>
   
     <section id="blog-section" >
-     <div class="container">
-       <div class="row">
-         <div class="col-lg-12">
-           <div class="row">
+     
+        <div class="col-lg-12 col-md-12">
              <h2>Noticies</h2>
-            </div>
+            
              <br>
-              <p>Publicar una nova noticia <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Crea noticia</button></p>
-             {% if follow == true %}
-             <button type="button" class="btn btn-info btn-md">
-                <a href="http://www.socialgaming.cat/comunitat/follow">segueix</a>
-              </button>
+              {% if gestiocomunitat is defined %}
+                  <p>Publicar una nova noticia<button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Crea noticia</button></p>
               {% endif %}
-             </div>
+              <br>
+             {% if follow == true %}
+              <div>
+             <a href="http://www.socialgaming.cat/comunitat/follow" class="btn btn-info btn-md">segueix</a>
+              </div>
 
-              
-    
-           </div>
-          </div>
-           <div>
+              {% endif %}
+            
+
+        
              
       {% for post in data %}
         <div class="col-lg-4 col-md-4">
           <aside class="modal_noticia">
-                <a  data-toggle="modal" data-target="#{{post.id}}" ><img src="{{post.img}}" class="img-responsive img_post"></a>
-                <div class="content-title"></div>
+                <a  data-toggle="modal" data-target="#{{post.id}}" ><img src="{{post.img}}" alt="post.img" class="img-responsive img_post"></a>
                 <div class="content-footer">
                 <span>{{post.title}}</span>         
                 <span class="pull-right">
@@ -70,28 +68,19 @@ for (i = 0; i < acc.length; i++) {
                 </div>
         </aside>
         </div>
-         <div class="container">
-  <!-- Modal -->
   <div class="modal fade" id="{{post.id}}" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
           <h2> {{post.title}}   </h2>
-          <img src="{{post.img}}" class="img-responsive">
+          <img src="{{post.img}}" alt="post.img" class="img-responsive">
           <p>{{post.message}}</p>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
     </div>
   </div>
-
-
-
-
-
-
       {% endfor %}
-      
-           </div>   
-    </section>
+      </div> 
+  </section>
     <div class="container">
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -129,5 +118,5 @@ for (i = 0; i < acc.length; i++) {
     </div>
     </div>
 </div>
-   
+   </div>
 {% endblock %}

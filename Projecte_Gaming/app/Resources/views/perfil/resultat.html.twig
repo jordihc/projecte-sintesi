@@ -30,27 +30,28 @@ for (i = 0; i < acc.length; i++) {
 
 
 {% block body %}
+<div class="container">
 <section id="blog-section" > 
+     <div class="col-lg-8 col-md-8">
+    <h2 class="title-widget-sidebar">Resultat</h2>
      <div class="container">
    
   
-            
+        {% if data != false %}
         {%  if comprova==true %}
         <div class="row">
         {% for post in data %}
-        
         <div class="col-lg-3 col-md-3">
         <aside class="buscat">
 
                 <a  class="link" href="{{post.url}}?userid={{post.id}}">
-                <img src="{{post.usericona}}" class="img-responsive post-img">
+                <img src="{{post.usericona}}" class="img-responsive post-img" alt="usricona">
                 <div class="content-footer">
                     <p>{{post.user}}</p>
                 </div> 
                </a> 
         </aside>
         </div>
-        
         {% endfor %}
         </div>
         {% endif %}
@@ -63,22 +64,23 @@ for (i = 0; i < acc.length; i++) {
 
         <div class="col-lg-3 col-md-3">
         <aside class="buscat_comunitat">
-                <a class="link" href="{{post.url}}?comunitatid={{post.id}}"><img src="{{post.imgavatar}}" class=" post-imgimg-responsive">   
+                <a class="link" href="{{post.url}}?comunitatid={{post.id}}"><img src="{{post.imgavatar}}" class="icona_comunitat img-responsive" alt="imgavatar">   
                 <div class="content-footer">
-                    <p ">{{post.name}}</p>
+                    <p>{{post.name}}</p>
                 </div> 
                </a>              
         </aside>
-
         </div>
-
-      {% endfor %}
+       {% endfor %}
        </div>
        {% endif %}
-
-
+       {% endif %}
+       {% if data == false %}
+       <span>No s'ha trobat cap resultat</span>
+       {% endif %}
+     </div>
        </div>
-   </section>)
-           
+   </section>
+        </div>   
    
 {% endblock %}

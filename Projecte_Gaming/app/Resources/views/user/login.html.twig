@@ -14,16 +14,11 @@
   <div class="col-md-12 fons no_pading ">
   <div class="col-md-4 no_pading formulari_registre">
    <form class="form-signin" action="loginverification" method="post">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <label for="inputEmail" class="sr-only">Usuari</label>
-      <input type="text" id="Email" name="user" class="form-control" placeholder="Email address" required autofocus>
+      <h1 class="h3 mb-3 font-weight-normal">Accedeix</h1>
+      <label  class="sr-only">Usuari</label>
+      <input type="text" id="Email" name="user" class="form-control" placeholder="Usuari" required autofocus>
       <label for="Password" class="sr-only">Password</label>
       <input type="password" id="Password" name="password" class="form-control" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Entra</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
       <p>Si no estàs subscrit <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Registra't</button></p>
@@ -48,20 +43,20 @@
       </div>
       <br>
       <div class="col-md-8 col-md-offset-2">
-      <label for="inputEmail" class="sr-only">Correu electronic</label>
-      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+      <label>Correu electronic</label>
+      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Correu electronic" required>
       <br>
-      <label for="nom" class="sr-only">Nom</label>
-      <input type="text" id="nom" name="name" class="form-control" placeholder="nom" required autofocus>
+      <label>Nom</label>
+      <input type="text" id="nom" name="name" class="form-control" placeholder="nom" required>
       <br>
-      <label for="user" class="sr-only">Nom de l'usuari</label>
-      <input type="text" id="user" name="user" class="form-control" placeholder="user" required autofocus>
+      <label>Nom de l'usuari</label>
+      <input type="text" id="user" name="user" class="form-control" placeholder="Nom de l'usuari" required>
       <br>
-      <label for="inputPassword" class="sr-only">Contrasenya</label>
-      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+      <label>Contrasenya</label>
+      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Contrasenya" required>
       <br>
-      <label for="Repassword" class="sr-only">Torna ha escriure la contrasenya</label>
-      <input type="password" id="Repassword" name="repassword" class="form-control" onblur="check2pwd()" placeholder="Rewrite password" required>
+      <label>Torna ha escriure la contrasenya</label>
+      <input type="password" id="Repassword" name="repassword" class="form-control" onblur="check2pwd()" placeholder="Torna ha escriure la contrasenya" required>
       </div>
       
       <br>
@@ -76,6 +71,7 @@
     </div>
     </div>
 
+</div>
 </div>
 {% endblock %}
 

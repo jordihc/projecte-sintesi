@@ -32,3 +32,13 @@ default_logout_comunitat:
     path:   /logout
     defaults: { _controller: "AppBundle:User:logout"}
     methods:  GET
+
+default_gestiouer_comunitat:
+    path:   /gestiouser
+    defaults: { _controller: "AppBundle:Perfil:gestiouser"}
+    methods:  GET
+
+default_contacte_comunitat:
+    path:   /contacte
+    defaults: { _controller: "AppBundle:User:contacte"}
+    methods:  GET

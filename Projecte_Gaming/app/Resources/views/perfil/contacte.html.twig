@@ -1,0 +1,65 @@
+
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+<script>
+         $(document).ready(function(){
+         $('[data-toggle="tooltip"]').tooltip(); 
+         });
+         
+         
+        
+      
+         
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  }
+}
+            }  
+</script>
+
+
+
+
+
+
+{% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+     
+		<h2>Contacte</h2>
+	</div>
+  <div class="col-md-8 ">
+		<aside>
+      <p>Nom: Jordi Herranz Cruz.</p>
+      <p>Edat:20 anys.</p>
+      <p>Ocupació: actualment el curs de desenvolupament d'aplicacions web a lacetania.</p>
+      <p>Residencia: Manresa</p>
+      <p>Email contacte:jordi@socialgaming.cat</p>
+    </aside>
+		</div>
+    <div class="col-md-8 ">
+    <aside>
+      <p>Nom: Bin Liu.</p>
+      <p>Edat:24 anys.</p>
+      <p>Ocupació: actualment el curs de desenvolupament d'aplicacions web a lacetania.</p>
+      <p>Residencia: Manresa</p>
+      <p>Email contacte:Bin@socialgaming.cat</p>
+    </aside>
+    </div>
+	</div>
+
+             
+               
+
+{% endblock %}

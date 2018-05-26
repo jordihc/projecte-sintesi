@@ -84,21 +84,19 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
 
-            $data["status"] = 'success';
-            $data["code"] = 200;
             $data["msg"] = 'New user created !!';
             $get_user = $em->getRepository("BackendBundle:InfoUsuario")->findBy(
                 array(
                     "user" => $user0
             ));
             $usersession->set('userID', $get_user[0]->getID());
+            $url = $this->generateUrl('default_login');
+            $usersession->set('usericona',$url.'uploads/usericona/avatardefault.png');
             return $this->redirect('perfil');
 
         }
         else{
             $data = array(
-                 "status" => "error",
-                 "code" => 400,
                  "msg" => "User not created, duplicated!!"
              );
         }
@@ -123,6 +121,7 @@ class UserController extends Controller
         $usersession->remove('userID');
         $usersession->remove('usericona');
         $usersession->remove('current_comunitatid');
+        $usersession->remove('current_userid');
         $url = $this->generateUrl('default_login',array('msg' => 'log out sucessfully!'));
 
         return $this->redirect($url);
@@ -152,9 +151,9 @@ class UserController extends Controller
 
         $url = $this->generateUrl('default_perfil');
         if ($tipo==0){
-             $data= array("data" => $arraydata,"gestio" => $url."gestiouser","comprova"=>true,"usericona" => $usericona,"logout" =>  $url."logout");
+             $data= array("data" => $arraydata,"gestio" => $url."gestiouser","comprova"=>true,"usericona" => $usericona,"logout" =>  $url."logout","contacte" => $url."contacte");
         }
-        else{$data= array("data" => $arraydata,"gestio" => $url."gestiouser","comprova"=>false,"usericona" => $usericona,"logout" =>  $url."logout");}
+        else{$data= array("data" => $arraydata,"gestio" => $url."gestiouser","comprova"=>false,"usericona" => $usericona,"logout" =>  $url."logout","contacte" => $url."contacte");}
         
       
         
@@ -189,7 +188,8 @@ class UserController extends Controller
                 $id_admin = $object->getIdAdmin();
                 $descrip = $object->getDescription();
                 $createdate = $object->getCreateDate()->format('Y-m-d H:i:s');
-                $imgavatar = $this->generateUrl('default_login').$object->getImgAvatar();
+                $imgavatar = $object->getImgAvatar();
+                $imgavatar = $this->generateUrl('default_login').$imgavatar;
                 $id_co = $object->getId();
                 $objectdata = array(
                     "name" => $name,
@@ -203,8 +203,24 @@ class UserController extends Controller
             }
             array_push($data,$objectdata);
         }
-
+        if(count($data) == 0){
+            return false;
+        }
         return $data;
+
     }
     
+    public function contacteAction(Request $request)
+    {  
+        $usersession = new Session();
+        $usericona = $usersession->get('usericona');
+        $url = $this->generateUrl('default_perfil');
+        $data = array(
+            "gestio" => $url."gestiouser",
+            "usericona" => $usericona,
+            "logout" =>  $url."logout",
+            "contacte" => $url."contacte"
+        );
+        return $this->render('perfil/contacte.html.twig',$data);
+    }
 }

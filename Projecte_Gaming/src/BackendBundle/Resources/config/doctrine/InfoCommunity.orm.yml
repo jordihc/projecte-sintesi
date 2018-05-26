@@ -19,7 +19,7 @@ BackendBundle\Entity\InfoCommunity:
                 fixed: false
         idAdmin:
             type: integer
-            nullable: false
+            nullable: true
             options:
                 unsigned: false
             column: id_admin
@@ -31,15 +31,15 @@ BackendBundle\Entity\InfoCommunity:
                 fixed: false
         createDate:
             type: datetime
-            nullable: false
+            nullable: true
             column: create_date
         imgAvatar:
             type: string
-            nullable: false
+            nullable: true
             length: 999
             options:
                 fixed: false
-                default: /uploads/community/default.png
+                default: /uploads/community/avatardefault.png
             column: img_avatar
         imgTitle:
             type: string

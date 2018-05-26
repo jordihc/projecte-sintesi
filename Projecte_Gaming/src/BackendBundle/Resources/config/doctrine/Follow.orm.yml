@@ -13,17 +13,17 @@ BackendBundle\Entity\Follow:
     fields:
         idUser:
             type: integer
-            nullable: false
+            nullable: true
             options:
                 unsigned: false
             column: id_user
         idCommunity:
             type: integer
-            nullable: false
+            nullable: true
             options:
                 unsigned: false
             column: id_community
         followdate:
             type: datetime
-            nullable: false
+            nullable: true
     lifecycleCallbacks: {  }

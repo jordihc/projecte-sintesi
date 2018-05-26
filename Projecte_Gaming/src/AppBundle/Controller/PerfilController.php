@@ -31,11 +31,20 @@ class PerfilController extends Controller
                 $current_userid = $userID;
             }
         }
+        if($request->get("myperfil") == 1){
+            $current_userid = $userID;
+        }
+        if($request->get("myperfil") == 1 || $userID == $current_userid){
+            $createpost = true;
+        }
+        else{
+            $createpost = false;
+        }
         $usernoticia = $this->getusernoticia($current_userid);
-       
+        
         $data = $this->getpostdatas($current_userid);
         $url = $this->generateUrl('default_perfil');
-        return $this->render('user/perfil.html.twig',array("data" => $data,"gestio" => $url."gestiouser","logout" => $url."logout","usericona" => $usericona,"usernoticia" => $usernoticia ));
+        return $this->render('user/perfil.html.twig',array("data" => $data,"gestio" => $url."gestiouser","logout" => $url."logout","usericona" => $usericona,"usernoticia" => $usernoticia ,"createpost" => $createpost,"contacte" => $url."contacte"));
     }
 
     public function postverificationAction(Request $request)
@@ -47,7 +56,6 @@ class PerfilController extends Controller
         $file = $request->files->get("image");
         $imgRoute = $this->savefile($file,"uploads/userpostimg");
         $this->setpostdatas($userID,$message,$imgRoute);
-
         $url = $this->generateUrl('default_perfil');
         return $this->redirect($url);
 
@@ -55,6 +63,7 @@ class PerfilController extends Controller
 
     public function gestiouserverification1Action(Request $request)
     {
+        $usersession = new Session();
         $em = $this->getDoctrine()->getManager();
         $usersession = new Session();
         $userID = $usersession->get('userID');
@@ -67,13 +76,14 @@ class PerfilController extends Controller
         $user=$user[0];
         $IconaRoute = $this->savefile($file,"uploads/usericona");
         $user->setIcona($IconaRoute);
+        $usersession->set('usericona',$this->generateUrl('default_login').$IconaRoute);
         if($email != null){
         $user->setEmail($email);
         }
         $em->persist($user);
         $em->flush();
 
-        $url = $this->generateUrl('default_principal');
+        $url = $this->generateUrl('default_perfil');
         return $this->redirect($url);
     }
 
@@ -189,12 +199,12 @@ class PerfilController extends Controller
                 ));
             $admin = $isset_user[0]->getIdAdmin();
             if ($user == $admin){
-                $data = array("gestio" => $url1."gestiouser","logout" => $url1."logout","gestiocomunitat" => $url2."gestiocomunitat","usericona" => $usericona);}
+                $data = array("gestio" => $url1."gestiouser","logout" => $url1."logout","gestiocomunitat" => $url2."gestiocomunitat","usericona" => $usericona,"contacte" => $url1."contacte");}
             else{
-                $data = array("gestio" => $url1."gestiouser","logout" => $url1."logout","usericona" => $usericona);  
+                $data = array("gestio" => $url1."gestiouser","logout" => $url1."logout","usericona" => $usericona,"contacte" => $url1."contacte");  
             }
         }else{
-            $data = array("gestio" => $url1."gestiouser","logout" => $url1."logout","usericona" => $usericona);  
+            $data = array("gestio" => $url1."gestiouser","logout" => $url1."logout","usericona" => $usericona,"contacte" => $url1."contacte");  
         }
         
         
@@ -205,7 +215,7 @@ class PerfilController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $sql="SELECT p.idCommunity,p.createDate,p.title,p.imgRoute,p.imgAlt,p.message FROM BackendBundle:Noticia p inner join BackendBundle:Follow q where q.idUser = :userid and q.idCommunity = p.idCommunity ORDER BY p.createDate DESC";
+        $sql="SELECT p.idCommunity,p.id,p.createDate,p.title,p.imgRoute,p.imgAlt,p.message FROM BackendBundle:Noticia p inner join BackendBundle:Follow q where q.idUser = :userid and q.idCommunity = p.idCommunity ORDER BY p.createDate DESC";
         $users = $em->createQuery($sql);
         $users->setParameter('userid', $userid);
         $result = $users->getResult();

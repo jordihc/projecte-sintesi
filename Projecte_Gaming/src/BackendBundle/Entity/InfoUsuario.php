@@ -40,7 +40,7 @@ class InfoUsuario
     /**
      * @var string
      */
-    private $icona = 'uploads/user/default.png';
+    private $icona = 'uploads/usericona/avatardefault.png';
 
 
     /**

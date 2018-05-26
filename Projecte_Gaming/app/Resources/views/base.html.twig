@@ -1,346 +1,293 @@
 <!doctype html>
-<html lang="en">
+<html lang="ca">
   <head>
+    <title>SocialGaming</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/js/jquery-3.1.1.js"></script>
     <script src="/js/bootstrap.js"></script>
-    
-    
-     {% block javascripts %}
+    {% block javascripts %}
     {% endblock %}
-    <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/css/fontawesome.css" rel="stylesheet" type="text/css">
     <style>
-
-body{background-color:#ECF0F1;
-      size: 16px;}
-
-.navbar-inverse {
-    background-color: #34495E;
-    border-color: #34495E;
-}
-.link {font-size: 16px;color: #fff;}
-.navbar {
-   background-color: #34495E;
-    position: relative;
-    min-height: 50px;
-    margin-bottom: 20px;
-    border: 0px solid transparent;
-    border-radius:0px;
-    
-}
-.header_tags{list-style-type: none;}
-.buscat_comunitat{width: 300px;
-        height: 200px;
-        size: 20px}
-.buscat_comunitat p{size: 20;}
-.lletra_principal{size: 14px;}
-.icona{width:60px;
-        height:60px;}
-
-.icona_comunitat{width:300px;
-                 height:150px;}
-.modal_noticia{width: 350px;
-                height:300px;}
-.modal_post{width: 300px;
-                height:300px;}
-.img_post{width:100%;
-          height: 75%; }
-
-.navbar-brand {
-   
-    float: left;
-    height:auto;
-    padding: 10px 10px;
-    font-size: 18px;
-    line-height: 20px;
-}
-.navbar-brand>img{ width:80%;}
-
-.navbar-inverse .navbar-nav > li > a {
-    color: #F39C12;
-}
-.navbar-inverse  > li > a:hover {
-   background-color: #009688;
-}
-.navbar  > li > a {
-    color: #F39C12;
-}
-.navbar  > li > a:hover {
-   background-color: #009688;
-}
-.btn-default {
-    color: #333;
-    background-color: #009688;
-    border-color: #009688;
-    border-radius:0px;
-    color:#fff;
-}
-.fixed{position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-  background-color: #34495E;
-   color: #F39C12;
-   text-align: center;}
-.footer {
-   
-   background-color: #34495E;
-   color: #F39C12;
-}
-#blog-section{margin-top:40px;margin-bottom:80px;}
-.content-title{padding:5px;background-color:#fff;}
-.content-title h3 a{color:#34495E;text-decoration:none; transition: 0.5s;}
-.content-title h3 a:hover{color:#F39C12; }
-.content-footer{background-color:#16A085;padding:10px;position: relative;}
-.content-footer span a {
-    color: #fff;
-    display: inline-block;
-    padding: 6px 5px;
-    text-decoration: none;
-    transition: 0.5s;
-}
-.content-footer span a:hover{     
-    color:#F39C12;   
-}
-aside{
-    margin-top: 30px;
-    -webkit-box-shadow: 1px 4px 16px 3px rgba(199,197,199,1);
--moz-box-shadow: 1px 4px 16px 3px rgba(199,197,199,1);
-box-shadow: 1px 4px 16px 3px rgba(199,197,199,1);}
-aside .content-footer>img {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    margin-right: 10px;
-    border: 2px solid #fff;
-}
-.border{border-style: solid;}
-.user-ditels {
-    width: 300px;
-    top: -100px;
-    height: 120px;
-    padding-bottom: 99px;
-    position: absolute;
-    border: solid 2px #fff;
-    background-color: #34495E;
-    right: 25px;
-    display: none;
-    z-index: 1;
-    display: flex; 
-}
-
-@media (max-width:768px){
-    .user-ditels {   
-    right: 5px;   
-}
-  
-}
-.user-small-img{cursor: pointer;}
-
-.content-footer:hover .user-ditels  {
-    display: block;
-}
-
-
-.content-footer .user-ditels .user-img{width: 100px;height:100px;float: left;}
-.user-full-ditels h3 {
-    color: #fff;
-    display: block;
-    margin: 0px;
-    padding-top: 10px;
-    padding-right: 28px;
-    text-align: right;
-}
-.user-full-ditels p{    
-    color: #fff;
-    display: block;
-    margin: 0px;
-     padding-right: 20px;
-    padding-top: 5px;
-   text-align: right;}
-
-
-/*recent-post-col////////////////////*/
-.widget-sidebar {
-    background-color: #fff;
-    padding: 20px;
-    margin-top: 30px;
-}
-
-.title-widget-sidebar {
-    font-size: 14pt;
-    border-bottom: 2px solid #e5ebef;
-    margin-bottom: 15px;
-    padding-bottom: 10px;    
-    margin-top: 0px;
-}
-
-.title-widget-sidebar:after {
-    border-bottom: 2px solid #f1c40f;
-    width: 150px;
-    display: block;
-    position: absolute;
-    content: '';
-    padding-bottom: 10px;
-}
-
-.recent-post{width: 100%;height: 80px;list-style-type: none;}
-.post-img img {
-    width: 100px;
-    height: 70px;
-    float: left;
-    margin-right: 15px;
-    border: 5px solid #16A085;
-    transition: 0.5s;
-}
-
-.recent-post a {text-decoration: none;color:#34495E;transition: 0.5s;}
-.post-img, .recent-post a:hover{color:#F39C12;}
-.post-img img:hover{border: 5px solid #F39C12;}
-
-/*===============ARCHIVES////////////////////////////*/
-
-
-
-button.accordion {
-    background-color: #16A085;
-    color: #fff;
-    cursor: pointer;
-    padding: 18px;
+    html,body{
+    height: 100%;
     width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-}
+    }
+        body{background-color:#ECF0F1;
+              font-size: 16px;}
 
-button.accordion.active, button.accordion:hover {
-    background-color: #F39C12;color: #fff;
-}
+        .navbar-inverse {
+            background-color: #34495E;
+            border-color: #34495E;
+        }
+        .link {font-size: 16px;color: #fff;}
+        .navbar {
+           background-color: #34495E;
+            position: relative;
+            min-height: 50px;
+            margin-bottom: 20px;
+            border: 0px solid transparent;
+            border-radius:0px;
+            
+        }
+        .text-md-left{display: flex;}
+        .header_tags{list-style-type: none;}
+        .buscat_comunitat{width: 300px;
+                height: 200px;
+                font-size: 20px}
+        .buscat_comunitat p{font-size: 20px;}
+        .lletra_principal{font-size: 14px;}
+        .icona{width:60px;
+                height:60px;}
+        .titol{margin-left: 50px;}
+        .icona_comunitat{width:300px;
+                         height:150px;}
+        .modal_noticia{width: 350px;
+                        height:300px;}
+        .modal_post{width: 300px;
+                        height:300px;}
+        .img_post{width:100%;
+                  height: 100%; }
+        .img_titol{width: 200px;
+                    height: 150px;}
+        .navbar-brand {
+           
+            float: left;
+            height:auto;
+            padding: 10px 10px;
+            font-size: 18px;
+            line-height: 20px;
+        }
+        .navbar-brand>img{ width:80%;}
 
-button.accordion:after {
-    content: '\002B';
-    color: #fff;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
-}
+        .navbar-inverse .navbar-nav > div > a {
+            color: #F39C12;
+        }
+        .navbar-inverse  > div > a:hover {
+           background-color: #009688;
+        }
+        .navbar_a {
+            color: #F39C12;
+        }
+        .btn-default {
+            color: #333;
+            background-color: #009688;
+            border-color: #009688;
+            border-radius:0px;
+            color:#fff;
+        }
+        .fixed{
+           left: 0;
+           bottom: 0;
+           width: 100%;
+          background-color: #34495E;
+           color: #F39C12;
+           text-align: center;}
+        footer {
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                margin-top: 10px;
+           
+           background-color: #34495E;
+           color: #F39C12;
+        }
+        #blog-section{margin-top:40px;margin-bottom:80px;}
+        .content-title{padding:0px;background-color:#fff;}
+        .content-title h3 a{color:#34495E;text-decoration:none; transition: 0.5s;}
+        .content-title h3 a:hover{color:#F39C12; }
+        .content-footer{background-color:#16A085;padding:10px;position: relative;}
+        .content-footer span a {
+            color: #fff;
+            display: inline-block;
+            padding: 6px 5px;
+            text-decoration: none;
+            transition: 0.5s;
+        }
+        .content-footer span a:hover{     
+            color:#F39C12;   
+        }
+        aside{
+            margin-top: 30px;
+            -webkit-box-shadow: 1px 4px 16px 3px rgba(199,197,199,1);
+        -moz-box-shadow: 1px 4px 16px 3px rgba(199,197,199,1);
+        box-shadow: 1px 4px 16px 3px rgba(199,197,199,1);
+        margin-bottom: 10px;}
+        aside .content-footer>img {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            margin-right: 10px;
+            border: 2px solid #fff;
 
-button.accordion.active:after {
-    content: "\2212";
-}
+        }
+        .border{border-style: solid;}
+        .user-ditels {
+            width: 300px;
+            top: -100px;
+            height: 120px;
+            padding-bottom: 99px;
+            position: absolute;
+            border: solid 2px #fff;
+            background-color: #34495E;
+            right: 25px;
+            display: none;
+            z-index: 1;
+            display: flex; 
+        }
 
-.panel {
-    padding: 0 18px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-}
+        @media (max-width:768px){
+            .user-ditels {   
+            right: 5px;   
+        }
+         aside .content-footer>img {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            margin-right: 10px;
+            border: 2px solid #fff;
+            margin-bottom: 10px;
+             } 
+        }
+        .user-small-img{cursor: pointer;}
+
+        .content-footer:hover .user-ditels  {
+            display: block;
+        }
 
 
-/*categories//////////////////////*/
+        .content-footer .user-ditels .user-img{width: 100px;height:100px;float: left;}
+        .user-full-ditels h3 {
+            color: #fff;
+            display: block;
+            margin: 0px;
+            padding-top: 10px;
+            padding-right: 28px;
+            text-align: right;
+        }
+        .user-full-ditels p{    
+            color: #fff;
+            display: block;
+            margin: 0px;
+             padding-right: 20px;
+            padding-top: 5px;
+           text-align: right;}
 
-.categories-btn{
-    background-color: #F39C12;
-    margin-top:30px;
-    color: #fff;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-    
-}
-.categories-btn:after {
-    content: '\25BA';
-    color: #fff;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
-}
-.categories-btn:hover {
-    background-color: #16A085;color: #fff;
-}
 
-.form-control{border-radius: 0px;}
+        /*recent-post-col////////////////////*/
+        .widget-sidebar {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 30px;
+        }
 
-.btn-warning {
-    border-radius: 0px;
-    background-color: #F39C12;
-    margin-top: 15px;
-}
-.input-group-addon{border-radius: 0px;}
-</style>
+        .title-widget-sidebar {
+            font-size: 14pt;
+            border-bottom: 2px solid #e5ebef;
+            margin-bottom: 15px;
+            padding-bottom: 10px;    
+            margin-top: 0px;
+        }
+
+        .title-widget-sidebar:after {
+            border-bottom: 2px solid #f1c40f;
+            width: 150px;
+            display: block;
+            position: absolute;
+            content: '';
+            padding-bottom: 10px;
+        }
+
+        .recent-post{width: 100%;height: 80px;list-style-type: none;}
+        .post-img img {
+            width: 100px;
+            height: 70px;
+            float: left;
+            margin-right: 15px;
+            border: 5px solid #16A085;
+            transition: 0.5s;
+        }
+
+        .recent-post a {text-decoration: none;color:#34495E;transition: 0.5s;}
+        .post-img, .recent-post a:hover{color:#F39C12;}
+        .post-img img:hover{border: 5px solid #F39C12;}
+
+        h2 {
+            color: orange;
+        }
+        .container{
+            min-height: 700px;
+        }
+
+    </style>
     {% block head %}{% endblock %}
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header float-left">
-      <a href=/perfil><img class="icona " src="{{usericona}}"></a>
-    </div>
-    <li class="header_tags"><a class="link" href={{gestio}}>Gestió</a></li>
-    {% if gestiocomunitat is defined %}
-    <li class="header_tags"><a class="link" href={{gestiocomunitat}}><span class="glyphicon glyphicon-user "></span>Gestió comunitat</a></li>
-    {% endif %}
-    <li class="header_tags"><a  class="link" href={{logout}}><span class="glyphicon glyphicon-log-in">&emsp;</span>Log out</a></li>
-    
-    <li class="header_tags">
-          <form class="navbar-form navbar-left" action="searchresult" method="post">
-  <select class="form-control" name="tipo">
-    <option value="0" selected>Usuari</option>
-    <option value="1">Comunitat</option>
-  </select>
-  <div class="input-group">
-    <input type="text" class="form-control" name="buscador" placeholder="Search">
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
-    </div>
-  </div>
-</form>
-</li>
-    </div>
-  </div>
-</nav>
-        {% block body %}
 
-<div class="fixed">
-        {% endblock %}
-    <footer class="page-footer font-small blue pt-4 mt-4">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header float-left">
+                <a  href="/perfil?myperfil=1"><img class="icona " src="{{usericona}}" alt="usericona"></a>
+            </div>
+            <span class="header_tags"><a class="navbar_a" href={{gestio}}>Gestió</a></span>
+            <span class="header_tags">
+                <a class="navbar_a"  href={{logout}}><span class="glyphicon glyphicon-log-in">&emsp;</span>Log out</a>
+            </span>
+            {% if gestiocomunitat is defined %}
+            <span class="header_tags">
+                <a class=" navbar_a" href={{gestiocomunitat}}><span class="glyphicon glyphicon-user "></span>Gestió comunitat</a>
+            </span>
+            {% endif %}
+            <span class="header_tags">
+                <a class="navbar_a" href={{contacte}}><span class="glyphicon glyphicon-user "></span>Contacte</a>
+            </span>
+            <div class="header_tags">
+            <form class="navbar-form navbar-left" action="searchresult" method="post">
+            <select class="form-control" name="tipo">
+                <option value="0" selected>Usuari</option>
+                <option value="1">Comunitat</option>
+            </select>
+            <div class="input-group">
+                <input type="text" class="form-control" name="buscador" placeholder="Search">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </nav>
+    {% block body %}
+    {% endblock %}
+<footer class="page-footer font-small blue pt-4 mt-4 navbar-static-bottom">
 
     <!--Footer Links-->
     <div class="container-fluid text-center text-md-left">
-       
-    </div>
+        <img src="/uploads/immmmmm.png" alt="imatge nivell conformitat A" class="img-responsive">
+        </div>
+  
     <!--/.Footer Links-->
 
     <!--Copyright-->
     <div class="footer-copyright py-3 text-center footer">
-        © 2018 Copyright:Socialgaming.com 
-                <p>Si tens algún problema o necessites ajuda, contacta info@socialgaming.cat</p>
-            </div>
+        © 2018 Copyright:Socialgaming.ml
+                <p>Si tens algún problema o necessites ajuda, contacta info@socialgaming.com</p>
+
     </div>
     <!--/.Copyright-->
 
-</footer>
-<div>
-   
+    </footer>
   </body>
+      
 </html>
