@@ -1,0 +1,1 @@
+Com el doxygen no funciona en tot el projecte s'ha de fer la comanda fitxer per fitxer
